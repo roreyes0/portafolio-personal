@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap");
+
+/* ============ Variables ============ */
+:root {
+  color-scheme: light;
+  --navy: #14243D;
+  --navy-deep: #101D35;
+  --gold: #B99A62;
+  --gold-dark: #8F7340;
+  --gold-light: #D8C49B;
+  --ivory: #E9E5DC;
+  --paper: #F8F7F4;
+  --white: #FFFFFF;
+  --slate: #64748B;
+  --line: rgba(185, 154, 98, .24);
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: "Fraunces", Georgia, "Times New Roman", serif;
+  --shadow: 0 10px 30px rgba(20, 36, 61, .06);
+  --shadow-lg: 0 14px 35px rgba(20, 36, 61, .10);
+  --wrap: 1120px;
+  scroll-behavior: smooth;
+}
+
+/* ============ Base ============ */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--white); scroll-padding-top: 90px; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--navy);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--navy);
+}
+p { margin: 0; color: var(--slate); }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--navy); color: #fff; border-radius: 8px;
+  transition: top .2s;
+}
+.skip-link:focus { top: 1rem; }
+
+.section-wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
+.content-section { padding-block: 5rem; position: relative; }
+
+.gradient-text {
+  background: linear-gradient(100deg, var(--navy) 10%, var(--gold) 90%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  margin-bottom: 1.1rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .14em;
+  color: var(--gold-dark);
+}
+
+/* ============ Header ============ */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 5px 25px rgba(20, 36, 61, .045);
+}
+.nav-shell {
+  width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 72px;
+}
+.brand { display: inline-flex; align-items: center; gap: .65rem; font-family: var(--font-head); font-weight: 600; font-size: 1.15rem; color: var(--navy); }
+.brand-mark {
+  display: grid; place-items: center; width: 38px; height: 38px;
+  border-radius: 10px; background: var(--navy); color: #fff;
+  font-weight: 600; box-shadow: 0 5px 15px rgba(20, 36, 61, .15);
+}
+.brand-dot { color: var(--gold); }
+
+.nav-links { display: flex; align-items: center; gap: 1.6rem; }
+.nav-links a { font-size: .95rem; font-weight: 500; color: var(--navy); transition: color .2s; }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--gold-dark); }
+.nav-links .nav-contact {
+  padding: .5rem 1.1rem; border: 1px solid var(--gold); border-radius: 999px;
+}
+.nav-links .nav-contact:hover { background: var(--ivory); color: var(--navy); }
+
+.language-switch { display: flex; align-items: center; gap: .35rem; color: var(--line); }
+.language-button {
+  padding: .3rem .55rem; border: 0; border-radius: 6px; background: transparent;
+  font-size: .82rem; font-weight: 700; color: var(--slate);
+}
+.language-button.is-active { background: var(--ivory); color: var(--navy); }
+
+.menu-toggle {
+  display: none; width: 44px; height: 44px; padding: 0;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  background: transparent; border: 1px solid var(--line); border-radius: 10px;
+}
+.menu-toggle span { display: block; width: 20px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+/* ============ Hero ============ */
+.hero {
+  display: grid; grid-template-columns: 1.1fr .9fr; align-items: center;
+  gap: 3.5rem; padding-block: 5rem 4rem;
+}
+.hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); letter-spacing: -.01em; }
+.hero-description { margin-top: 1.4rem; max-width: 52ch; font-size: 1.1rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2rem; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 2rem; font-size: .92rem; color: var(--slate); }
+.meta-icon { color: var(--gold); margin-right: .3rem; }
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: #8CA58B; box-shadow: 0 0 12px rgba(140, 165, 139, .5); }
+
+.button {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .98rem;
+  transition: background .2s, box-shadow .2s, border-color .2s;
+}
+.button-primary { background: var(--navy); color: #fff; box-shadow: 0 8px 22px rgba(20, 36, 61, .13); }
+.button-primary:hover { background: #203957; box-shadow: 0 10px 25px rgba(20, 36, 61, .18); }
+.button-secondary { background: #fff; color: var(--navy); border: 1px solid var(--gold); }
+.button-secondary:hover { background: var(--ivory); }
+
+.hero-visual { position: relative; display: grid; place-items: center; min-height: 440px; }
+.hero-visual::before {
+  content: ""; position: absolute; inset: 8% 6%; border-radius: 50%;
+  background: rgba(185, 154, 98, .12); filter: blur(30px);
+}
+.visual-orbit { position: absolute; border-radius: 50%; border: 1px solid rgba(185, 154, 98, .3); }
+.orbit-one { width: 420px; height: 420px; max-width: 100%; aspect-ratio: 1; }
+.orbit-two { width: 330px; height: 330px; max-width: 80%; aspect-ratio: 1; border-color: rgba(20, 36, 61, .12); }
+.photo-frame {
+  position: relative; z-index: 1; width: min(280px, 70%); aspect-ratio: 4 / 5;
+  padding: 7px; border-radius: 28px;
+  background: linear-gradient(145deg, var(--gold), var(--ivory), var(--navy));
+  box-shadow: 0 20px 65px rgba(20, 36, 61, .15);
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 22px; background: #E7E3DA; }
+.photo-label, .floating-chip {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: #fff; color: var(--navy); border: 1px solid var(--line);
+  border-radius: 999px; font-size: .85rem; font-weight: 600;
+  box-shadow: 0 8px 25px rgba(20, 36, 61, .09);
+}
+.photo-label { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); padding: .5rem 1rem; white-space: nowrap; }
+.label-sparkle, .floating-chip span { color: var(--gold); }
+.floating-chip { position: absolute; z-index: 2; padding: .55rem 1rem; }
+.chip-code { top: 14%; right: 0; }
+.chip-spark { bottom: 16%; left: 0; }
+
+/* ============ Ticker ============ */
+.ticker { overflow: hidden; background: var(--ivory); border-block: 1px solid var(--line); padding-block: 1rem; }
+.ticker-track {
+  display: flex; align-items: center; gap: 2rem; padding-right: 2rem;
+  width: max-content; font-weight: 700; letter-spacing: .16em; font-size: .85rem;
+  color: var(--navy); animation: ticker 28s linear infinite;
+}
+.ticker-track i { font-style: normal; color: var(--gold); }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* ============ Section headings ============ */
+.section-heading { margin-bottom: 2.5rem; max-width: 40rem; }
+.section-heading h2, .contact-panel h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+
+/* ============ About ============ */
+.about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.5rem; align-items: start; }
+.panel, .skill-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: var(--shadow); transition: border-color .2s, box-shadow .2s;
+}
+.panel { padding: 2rem; display: grid; gap: 1.2rem; }
+.large-copy { font-family: var(--font-head); font-size: 1.35rem; line-height: 1.45; color: var(--navy); }
+.about-facts { display: grid; gap: 1rem; }
+.fact-card {
+  display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem 1.4rem;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
+}
+.fact-number { font-family: var(--font-head); font-size: 1.4rem; color: var(--gold); line-height: 1; padding-top: .15rem; }
+.fact-card h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+.fact-card p { font-size: .94rem; }
+
+/* ============ Projects ============ */
+.projects-section { background: var(--paper); border-block: 1px solid var(--line); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.5rem; }
+.project-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: #fff; border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(20, 36, 61, .04); transition: border-color .2s, box-shadow .2s;
+}
+.skill-card:hover, .project-card:hover { border-color: var(--gold); box-shadow: var(--shadow-lg); }
+
+.project-art {
+  position: relative; overflow: hidden; min-height: 170px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, #E9E5DC, #DCE2E9);
+  border-bottom: 1px solid var(--line);
+}
+.art-code {
+  position: relative; z-index: 1; padding: .5rem 1rem; border-radius: 10px;
+  background: #fff; color: var(--navy); border: 1px solid var(--gold);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .9rem;
+}
+.art-orb { position: absolute; right: -30px; top: -30px; width: 130px; height: 130px; border-radius: 50%; border: 1px solid rgba(185, 154, 98, .5); }
+.art-grid {
+  position: absolute; inset: 0; opacity: .8;
+  background-image:
+    linear-gradient(rgba(185, 154, 98, .2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 154, 98, .2) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.chart-bars { position: relative; z-index: 1; display: flex; align-items: flex-end; gap: 10px; height: 90px; }
+.chart-bars i { display: block; width: 18px; border-radius: 5px 5px 0 0; background: linear-gradient(var(--gold-light), var(--gold)); }
+.chart-bars i:nth-child(1) { height: 35%; }
+.chart-bars i:nth-child(2) { height: 55%; }
+.chart-bars i:nth-child(3) { height: 45%; }
+.chart-bars i:nth-child(4) { height: 80%; }
+.chart-bars i:nth-child(5) { height: 100%; }
+.chart-line { position: absolute; left: 12%; right: 12%; top: 40%; border-top: 2px dashed var(--gold); transform: rotate(-8deg); opacity: .6; }
+.window-card {
+  position: relative; z-index: 1; display: flex; align-items: center; gap: 6px;
+  padding: .8rem 1.1rem; background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(20, 36, 61, .08);
+}
+.window-card i { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.window-card b { margin-left: .6rem; font-size: .9rem; color: var(--navy); }
+.pink-glow { position: absolute; width: 160px; height: 160px; border-radius: 50%; background: rgba(185, 154, 98, .18); filter: blur(30px); }
+
+.project-body { display: flex; flex-direction: column; gap: .75rem; padding: 1.5rem; flex: 1; }
+.project-topline { font-size: .75rem; font-weight: 700; letter-spacing: .14em; color: var(--gold-dark); }
+.project-body h3 { font-size: 1.3rem; }
+.project-body p { font-size: .96rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .25rem; }
+.tag-list span {
+  padding: .25rem .75rem; border-radius: 999px; font-size: .8rem; font-weight: 600;
+  color: var(--navy); background: var(--paper); border: 1px solid var(--line);
+}
+.text-link { margin-top: auto; padding-top: .5rem; font-weight: 700; color: var(--gold-dark); }
+.text-link:hover { color: var(--navy); }
+.tag-list .text-link { margin-top: 0; padding-top: 0; }
+
+/* ============ Skills / certificados ============ */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.25rem; }
+.skill-card { display: flex; flex-direction: column; gap: .75rem; padding: 1.6rem; }
+.skill-card h3 { font-size: 1.15rem; }
+.skill-card p { font-size: .94rem; }
+.skill-card .tag-list { margin-top: auto; padding-top: .5rem; }
+.skill-icon {
+  width: 54px; height: 54px; border-radius: 16px; font-size: 1.7rem;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #fce4ef, #f8d5e5); color: #b45b83;
+}
+.certificate-link { display: inline-flex; }
+.skill-card .certificate-link span {
+  padding: .4rem .9rem; border-radius: 999px; font-size: .84rem; font-weight: 700;
+  color: var(--navy); background: #fff; border: 1px solid var(--gold); transition: background .2s;
+}
+.skill-card .certificate-link:hover span { background: var(--ivory); }
+
+/* ============ Timeline ============ */
+.timeline { display: grid; gap: 1.75rem; max-width: 860px; }
+.timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; align-items: start; }
+.timeline-date { padding-top: .2rem; font-size: .8rem; font-weight: 700; letter-spacing: .1em; color: var(--slate); text-align: right; }
+.timeline-content { position: relative; padding: 0 0 .5rem 1.8rem; border-left: 1px solid var(--line); }
+.timeline-dot {
+  position: absolute; left: -7px; top: .35rem; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 4px #fff, 0 0 12px rgba(185, 154, 98, .4);
+}
+.timeline-content h3 { font-size: 1.15rem; margin-bottom: .35rem; }
+.timeline-content p { font-size: .95rem; }
+
+/* ============ Contact ============ */
+.contact-section { padding-block: 3rem 5rem; }
+.contact-panel {
+  padding: clamp(2rem, 5vw, 3.5rem); text-align: center;
+  background: linear-gradient(120deg, var(--paper), #fff);
+  border: 1px solid var(--line); border-radius: 28px;
+  box-shadow: 0 12px 35px rgba(20, 36, 61, .06);
+}
+.contact-panel > p:not(.eyebrow) { max-width: 52ch; margin: 1rem auto 0; }
+.contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin-top: 2rem; }
+
+/* ============ Footer ============ */
+.site-footer { border-top: 1px solid var(--line); background: #fff; }
+.footer-inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-block: 1.8rem;
+}
+.footer-inner p { font-size: .9rem; }
+.back-top { font-size: .9rem; color: var(--slate); }
+.back-top:hover { color: var(--gold-dark); }
+
+/* ============ Animación de entrada ============ */
+.js-motion .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.js-motion .reveal.is-visible { opacity: 1; transform: none; }
+
+/* ============ Responsive ============ */
+@media (max-width: 900px) {
+  .hero, .about-grid { grid-template-columns: 1fr; }
+  .hero { padding-block: 3rem; gap: 2.5rem; }
+  .hero-visual { min-height: 400px; }
+  .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
+  .timeline-date { text-align: left; }
+}
+
+@media (max-width: 680px) {
+  .content-section { padding-block: 3.5rem; }
+  .menu-toggle { display: flex; }
+  .nav-links {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: flex-start; gap: 1rem;
+    padding: 1.25rem 1.5rem 1.5rem; background: #fff;
+    border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px rgba(20, 36, 61, .08);
+  }
+  .nav-links.is-open { display: flex; }
+  .chip-code { right: -4px; }
+  .chip-spark { left: -4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  .ticker-track { animation: none; }
+  .js-motion .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+
+/* =====================================================
+   MEJORAS V2: acabado profesional
+   ===================================================== */
+body { overflow-x: clip; -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--gold-light); color: var(--navy-deep); }
+p { text-wrap: pretty; }
+h1, h2 { text-wrap: balance; }
+html { scrollbar-color: var(--gold) var(--paper); }
+
+/* Fondo del inicio: brillo dorado suave + mapa mundial de puntos */
+main { position: relative; isolation: isolate; }
+main::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 880px;
+  z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(520px 380px at 88% 12%, rgba(185, 154, 98, .16), transparent 70%),
+    radial-gradient(460px 340px at 4% 4%, rgba(20, 36, 61, .05), transparent 70%);
+}
+main::after {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 720px;
+  z-index: -1; pointer-events: none; opacity: .17;
+  background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 564%22 fill=%22none%22%3E%3Cpath d=%22M330 9h0M339 9h0M348 9h0M356 9h0M365 9h0M374 9h0M383 9h0M392 9h0M400 9h0M409 9h0M444 9h0M453 9h0M462 9h0M471 9h0M480 9h0M488 9h0M497 9h0M506 9h0M515 9h0M524 9h0M532 9h0M541 9h0M550 9h0M559 9h0M568 9h0M576 9h0M585 9h0M308 18h0M317 18h0M326 18h0M334 18h0M343 18h0M352 18h0M361 18h0M370 18h0M378 18h0M414 18h0M422 18h0M431 18h0M440 18h0M449 18h0M458 18h0M466 18h0M475 18h0M484 18h0M493 18h0M502 18h0M510 18h0M519 18h0M528 18h0M537 18h0M546 18h0M554 18h0M563 18h0M572 18h0M581 18h0M590 18h0M598 18h0M321 26h0M330 26h0M400 26h0M409 26h0M418 26h0M427 26h0M436 26h0M444 26h0M453 26h0M462 26h0M471 26h0M480 26h0M488 26h0M497 26h0M506 26h0M515 26h0M524 26h0M532 26h0M541 26h0M550 26h0M559 26h0M568 26h0M576 26h0M585 26h0M594 26h0M603 26h0M1096 26h0M422 35h0M431 35h0M440 35h0M449 35h0M458 35h0M466 35h0M475 35h0M484 35h0M493 35h0M502 35h0M510 35h0M519 35h0M528 35h0M537 35h0M546 35h0M554 35h0M563 35h0M572 35h0M581 35h0M590 35h0M598 35h0M915 35h0M924 35h0M933 35h0M942 35h0M1038 35h0M1047 35h0M1056 35h0M1065 35h0M1074 35h0M1082 35h0M1091 35h0M1100 35h0M1109 35h0M1118 35h0M216 44h0M224 44h0M233 44h0M242 44h0M251 44h0M260 44h0M321 44h0M330 44h0M339 44h0M348 44h0M356 44h0M365 44h0M436 44h0M444 44h0M453 44h0M462 44h0M471 44h0M480 44h0M488 44h0M497 44h0M506 44h0M515 44h0M524 44h0M532 44h0M541 44h0M550 44h0M559 44h0M568 44h0M576 44h0M585 44h0M594 44h0M902 44h0M911 44h0M920 44h0M1016 44h0M1025 44h0M1034 44h0M1043 44h0M1052 44h0M1060 44h0M1069 44h0M1078 44h0M1087 44h0M1096 44h0M1104 44h0M1113 44h0M1122 44h0M1131 44h0M1140 44h0M1148 44h0M1157 44h0M1166 44h0M1175 44h0M1184 44h0M53 53h0M62 53h0M70 53h0M211 53h0M220 53h0M229 53h0M238 53h0M246 53h0M255 53h0M264 53h0M343 53h0M352 53h0M361 53h0M370 53h0M378 53h0M387 53h0M458 53h0M466 53h0M475 53h0M484 53h0M493 53h0M502 53h0M510 53h0M519 53h0M528 53h0M537 53h0M546 53h0M554 53h0M563 53h0M572 53h0M581 53h0M590 53h0M783 53h0M792 53h0M898 53h0M906 53h0M977 53h0M986 53h0M994 53h0M1003 53h0M1012 53h0M1021 53h0M1030 53h0M1038 53h0M1047 53h0M1056 53h0M1065 53h0M1074 53h0M1082 53h0M1091 53h0M1100 53h0M1109 53h0M1118 53h0M1126 53h0M1135 53h0M1144 53h0M1153 53h0M1162 53h0M1170 53h0M1179 53h0M1188 53h0M1197 53h0M1206 53h0M1214 53h0M1223 53h0M1232 53h0M1241 53h0M1250 53h0M1258 53h0M1267 53h0M1276 53h0M1285 53h0M1294 53h0M1302 53h0M31 62h0M40 62h0M48 62h0M57 62h0M66 62h0M75 62h0M84 62h0M92 62h0M101 62h0M110 62h0M119 62h0M128 62h0M136 62h0M145 62h0M154 62h0M163 62h0M172 62h0M180 62h0M189 62h0M198 62h0M207 62h0M216 62h0M242 62h0M330 62h0M339 62h0M374 62h0M383 62h0M392 62h0M400 62h0M409 62h0M471 62h0M480 62h0M488 62h0M497 62h0M506 62h0M515 62h0M524 62h0M532 62h0M541 62h0M550 62h0M559 62h0M752 62h0M761 62h0M770 62h0M779 62h0M788 62h0M796 62h0M805 62h0M911 62h0M920 62h0M928 62h0M937 62h0M946 62h0M955 62h0M964 62h0M972 62h0M981 62h0M990 62h0M999 62h0M1008 62h0M1016 62h0M1025 62h0M1034 62h0M1043 62h0M1052 62h0M1060 62h0M1069 62h0M1078 62h0M1087 62h0M1096 62h0M1104 62h0M1113 62h0M1122 62h0M1131 62h0M1140 62h0M1148 62h0M1157 62h0M1166 62h0M1175 62h0M1184 62h0M1192 62h0M1201 62h0M1210 62h0M1219 62h0M1228 62h0M1236 62h0M1245 62h0M1254 62h0M1263 62h0M1272 62h0M1280 62h0M1289 62h0M1298 62h0M1307 62h0M1316 62h0M1324 62h0M1333 62h0M1342 62h0M1351 62h0M1360 62h0M1368 62h0M1377 62h0M1386 62h0M1395 62h0M18 70h0M26 70h0M35 70h0M44 70h0M53 70h0M62 70h0M70 70h0M79 70h0M88 70h0M97 70h0M106 70h0M114 70h0M123 70h0M132 70h0M141 70h0M150 70h0M158 70h0M167 70h0M176 70h0M185 70h0M194 70h0M202 70h0M211 70h0M220 70h0M229 70h0M238 70h0M246 70h0M255 70h0M264 70h0M273 70h0M282 70h0M290 70h0M299 70h0M308 70h0M317 70h0M326 70h0M334 70h0M343 70h0M378 70h0M387 70h0M396 70h0M405 70h0M414 70h0M422 70h0M475 70h0M484 70h0M493 70h0M502 70h0M510 70h0M519 70h0M528 70h0M598 70h0M607 70h0M616 70h0M739 70h0M748 70h0M757 70h0M766 70h0M774 70h0M783 70h0M792 70h0M801 70h0M810 70h0M818 70h0M845 70h0M854 70h0M862 70h0M871 70h0M880 70h0M889 70h0M898 70h0M906 70h0M915 70h0M924 70h0M933 70h0M942 70h0M950 70h0M959 70h0M968 70h0M977 70h0M986 70h0M994 70h0M1003 70h0M1012 70h0M1021 70h0M1030 70h0M1038 70h0M1047 70h0M1056 70h0M1065 70h0M1074 70h0M1082 70h0M1091 70h0M1100 70h0M1109 70h0M1118 70h0M1126 70h0M1135 70h0M1144 70h0M1153 70h0M1162 70h0M1170 70h0M1179 70h0M1188 70h0M1197 70h0M1206 70h0M1214 70h0M1223 70h0M1232 70h0M1241 70h0M1250 70h0M1258 70h0M1267 70h0M1276 70h0M1285 70h0M1294 70h0M1302 70h0M1311 70h0M1320 70h0M1329 70h0M1338 70h0M1346 70h0M1355 70h0M1364 70h0M1373 70h0M1382 70h0M1390 70h0M1399 70h0M22 79h0M31 79h0M40 79h0M48 79h0M57 79h0M66 79h0M75 79h0M84 79h0M92 79h0M101 79h0M110 79h0M119 79h0M128 79h0M136 79h0M145 79h0M154 79h0M163 79h0M172 79h0M180 79h0M189 79h0M198 79h0M207 79h0M216 79h0M224 79h0M233 79h0M242 79h0M251 79h0M260 79h0M268 79h0M277 79h0M286 79h0M295 79h0M304 79h0M312 79h0M321 79h0M330 79h0M383 79h0M392 79h0M400 79h0M409 79h0M418 79h0M480 79h0M488 79h0M497 79h0M506 79h0M515 79h0M594 79h0M603 79h0M612 79h0M726 79h0M735 79h0M744 79h0M752 79h0M779 79h0M788 79h0M796 79h0M805 79h0M814 79h0M823 79h0M832 79h0M840 79h0M849 79h0M858 79h0M867 79h0M876 79h0M884 79h0M893 79h0M902 79h0M911 79h0M920 79h0M928 79h0M937 79h0M946 79h0M955 79h0M964 79h0M972 79h0M981 79h0M990 79h0M999 79h0M1008 79h0M1016 79h0M1025 79h0M1034 79h0M1043 79h0M1052 79h0M1060 79h0M1069 79h0M1078 79h0M1087 79h0M1096 79h0M1104 79h0M1113 79h0M1122 79h0M1131 79h0M1140 79h0M1148 79h0M1157 79h0M1166 79h0M1175 79h0M1184 79h0M1192 79h0M1201 79h0M1210 79h0M1219 79h0M1228 79h0M1236 79h0M1245 79h0M1254 79h0M1263 79h0M1272 79h0M1280 79h0M1289 79h0M1298 79h0M1307 79h0M1316 79h0M1324 79h0M1333 79h0M1342 79h0M1351 79h0M1360 79h0M1368 79h0M1377 79h0M1386 79h0M1395 79h0M26 88h0M35 88h0M44 88h0M53 88h0M62 88h0M70 88h0M79 88h0M88 88h0M97 88h0M106 88h0M114 88h0M123 88h0M132 88h0M141 88h0M150 88h0M158 88h0M167 88h0M176 88h0M185 88h0M194 88h0M202 88h0M211 88h0M220 88h0M229 88h0M238 88h0M246 88h0M255 88h0M264 88h0M273 88h0M282 88h0M290 88h0M299 88h0M308 88h0M378 88h0M387 88h0M484 88h0M493 88h0M502 88h0M510 88h0M713 88h0M722 88h0M730 88h0M739 88h0M748 88h0M774 88h0M783 88h0M792 88h0M801 88h0M810 88h0M818 88h0M827 88h0M836 88h0M845 88h0M854 88h0M862 88h0M871 88h0M880 88h0M889 88h0M898 88h0M906 88h0M915 88h0M924 88h0M933 88h0M942 88h0M950 88h0M959 88h0M968 88h0M977 88h0M986 88h0M994 88h0M1003 88h0M1012 88h0M1021 88h0M1030 88h0M1038 88h0M1047 88h0M1056 88h0M1065 88h0M1074 88h0M1082 88h0M1091 88h0M1100 88h0M1109 88h0M1118 88h0M1126 88h0M1135 88h0M1144 88h0M1153 88h0M1162 88h0M1170 88h0M1179 88h0M1188 88h0M1197 88h0M1206 88h0M1214 88h0M1223 88h0M1232 88h0M1241 88h0M1250 88h0M1258 88h0M1267 88h0M1276 88h0M1285 88h0M1294 88h0M1302 88h0M1311 88h0M1320 88h0M1329 88h0M1338 88h0M1346 88h0M1355 88h0M1364 88h0M1373 88h0M1382 88h0M40 97h0M48 97h0M57 97h0M66 97h0M75 97h0M128 97h0M136 97h0M145 97h0M154 97h0M163 97h0M172 97h0M180 97h0M189 97h0M198 97h0M207 97h0M216 97h0M224 97h0M233 97h0M242 97h0M251 97h0M260 97h0M268 97h0M277 97h0M286 97h0M295 97h0M304 97h0M374 97h0M383 97h0M392 97h0M400 97h0M409 97h0M418 97h0M708 97h0M717 97h0M726 97h0M735 97h0M744 97h0M796 97h0M805 97h0M814 97h0M823 97h0M832 97h0M840 97h0M849 97h0M858 97h0M867 97h0M876 97h0M884 97h0M893 97h0M902 97h0M911 97h0M920 97h0M928 97h0M937 97h0M946 97h0M955 97h0M964 97h0M972 97h0M981 97h0M990 97h0M999 97h0M1008 97h0M1016 97h0M1025 97h0M1034 97h0M1043 97h0M1052 97h0M1060 97h0M1069 97h0M1078 97h0M1087 97h0M1096 97h0M1104 97h0M1113 97h0M1122 97h0M1131 97h0M1140 97h0M1148 97h0M1157 97h0M1166 97h0M1175 97h0M1184 97h0M1192 97h0M1201 97h0M1210 97h0M1219 97h0M1228 97h0M1236 97h0M1245 97h0M1254 97h0M1263 97h0M1272 97h0M1280 97h0M1289 97h0M1298 97h0M1307 97h0M1316 97h0M1324 97h0M1333 97h0M1342 97h0M44 106h0M53 106h0M62 106h0M150 106h0M158 106h0M167 106h0M176 106h0M185 106h0M194 106h0M202 106h0M211 106h0M220 106h0M229 106h0M238 106h0M246 106h0M255 106h0M264 106h0M273 106h0M282 106h0M290 106h0M299 106h0M370 106h0M378 106h0M387 106h0M396 106h0M405 106h0M414 106h0M422 106h0M660 106h0M722 106h0M730 106h0M739 106h0M748 106h0M774 106h0M783 106h0M792 106h0M801 106h0M810 106h0M818 106h0M827 106h0M836 106h0M845 106h0M854 106h0M862 106h0M871 106h0M880 106h0M889 106h0M898 106h0M906 106h0M915 106h0M924 106h0M933 106h0M942 106h0M950 106h0M959 106h0M968 106h0M977 106h0M986 106h0M994 106h0M1003 106h0M1012 106h0M1021 106h0M1030 106h0M1038 106h0M1047 106h0M1056 106h0M1065 106h0M1074 106h0M1082 106h0M1091 106h0M1100 106h0M1109 106h0M1118 106h0M1126 106h0M1135 106h0M1144 106h0M1153 106h0M1162 106h0M1170 106h0M1179 106h0M1188 106h0M1197 106h0M1206 106h0M1214 106h0M1223 106h0M1232 106h0M1241 106h0M1311 106h0M1320 106h0M1329 106h0M31 114h0M163 114h0M172 114h0M180 114h0M189 114h0M198 114h0M207 114h0M216 114h0M224 114h0M233 114h0M242 114h0M251 114h0M260 114h0M268 114h0M277 114h0M286 114h0M295 114h0M304 114h0M312 114h0M321 114h0M330 114h0M365 114h0M374 114h0M383 114h0M392 114h0M400 114h0M409 114h0M418 114h0M427 114h0M436 114h0M664 114h0M673 114h0M717 114h0M726 114h0M761 114h0M770 114h0M779 114h0M788 114h0M796 114h0M805 114h0M814 114h0M823 114h0M832 114h0M840 114h0M849 114h0M858 114h0M867 114h0M876 114h0M884 114h0M893 114h0M902 114h0M911 114h0M920 114h0M928 114h0M937 114h0M946 114h0M955 114h0M964 114h0M972 114h0M981 114h0M990 114h0M999 114h0M1008 114h0M1016 114h0M1025 114h0M1034 114h0M1043 114h0M1052 114h0M1060 114h0M1069 114h0M1078 114h0M1087 114h0M1096 114h0M1104 114h0M1113 114h0M1122 114h0M1131 114h0M1140 114h0M1148 114h0M1157 114h0M1166 114h0M1175 114h0M1184 114h0M1192 114h0M1201 114h0M1210 114h0M1219 114h0M1228 114h0M1307 114h0M1316 114h0M1324 114h0M167 123h0M176 123h0M185 123h0M194 123h0M202 123h0M211 123h0M220 123h0M229 123h0M238 123h0M246 123h0M255 123h0M264 123h0M273 123h0M282 123h0M290 123h0M299 123h0M308 123h0M317 123h0M326 123h0M334 123h0M343 123h0M361 123h0M370 123h0M378 123h0M387 123h0M396 123h0M405 123h0M414 123h0M422 123h0M431 123h0M440 123h0M449 123h0M642 123h0M651 123h0M669 123h0M678 123h0M713 123h0M722 123h0M730 123h0M739 123h0M748 123h0M757 123h0M766 123h0M774 123h0M783 123h0M792 123h0M801 123h0M810 123h0M818 123h0M827 123h0M836 123h0M845 123h0M854 123h0M862 123h0M871 123h0M880 123h0M889 123h0M898 123h0M906 123h0M915 123h0M924 123h0M933 123h0M942 123h0M950 123h0M959 123h0M968 123h0M977 123h0M986 123h0M994 123h0M1003 123h0M1012 123h0M1021 123h0M1030 123h0M1038 123h0M1047 123h0M1056 123h0M1065 123h0M1074 123h0M1082 123h0M1091 123h0M1100 123h0M1109 123h0M1118 123h0M1126 123h0M1135 123h0M1144 123h0M1153 123h0M1162 123h0M1170 123h0M1179 123h0M1188 123h0M1197 123h0M1206 123h0M1214 123h0M1223 123h0M1232 123h0M1241 123h0M1250 123h0M1311 123h0M180 132h0M189 132h0M198 132h0M207 132h0M216 132h0M224 132h0M233 132h0M242 132h0M251 132h0M260 132h0M268 132h0M277 132h0M286 132h0M295 132h0M304 132h0M312 132h0M321 132h0M330 132h0M339 132h0M348 132h0M356 132h0M365 132h0M374 132h0M383 132h0M392 132h0M400 132h0M409 132h0M418 132h0M427 132h0M436 132h0M444 132h0M673 132h0M691 132h0M700 132h0M708 132h0M717 132h0M726 132h0M735 132h0M744 132h0M752 132h0M761 132h0M770 132h0M779 132h0M788 132h0M796 132h0M805 132h0M814 132h0M823 132h0M832 132h0M840 132h0M849 132h0M858 132h0M867 132h0M876 132h0M884 132h0M893 132h0M902 132h0M911 132h0M920 132h0M928 132h0M937 132h0M946 132h0M955 132h0M964 132h0M972 132h0M981 132h0M990 132h0M999 132h0M1008 132h0M1016 132h0M1025 132h0M1034 132h0M1043 132h0M1052 132h0M1060 132h0M1069 132h0M1078 132h0M1087 132h0M1096 132h0M1104 132h0M1113 132h0M1122 132h0M1131 132h0M1140 132h0M1148 132h0M1157 132h0M1166 132h0M1175 132h0M1184 132h0M1192 132h0M1201 132h0M1210 132h0M1219 132h0M1228 132h0M1236 132h0M194 141h0M202 141h0M211 141h0M220 141h0M229 141h0M238 141h0M246 141h0M255 141h0M264 141h0M273 141h0M282 141h0M290 141h0M299 141h0M308 141h0M317 141h0M326 141h0M334 141h0M343 141h0M352 141h0M361 141h0M370 141h0M378 141h0M387 141h0M396 141h0M405 141h0M414 141h0M678 141h0M686 141h0M695 141h0M704 141h0M713 141h0M722 141h0M730 141h0M739 141h0M748 141h0M757 141h0M766 141h0M774 141h0M783 141h0M792 141h0M801 141h0M810 141h0M818 141h0M827 141h0M836 141h0M845 141h0M854 141h0M862 141h0M871 141h0M880 141h0M889 141h0M898 141h0M906 141h0M915 141h0M924 141h0M933 141h0M942 141h0M950 141h0M959 141h0M968 141h0M977 141h0M986 141h0M994 141h0M1003 141h0M1012 141h0M1021 141h0M1030 141h0M1038 141h0M1047 141h0M1056 141h0M1065 141h0M1074 141h0M1082 141h0M1091 141h0M1100 141h0M1109 141h0M1118 141h0M1126 141h0M1135 141h0M1144 141h0M1153 141h0M1162 141h0M1170 141h0M1179 141h0M1188 141h0M1197 141h0M1206 141h0M1214 141h0M1223 141h0M1232 141h0M1250 141h0M189 150h0M198 150h0M207 150h0M216 150h0M224 150h0M233 150h0M242 150h0M251 150h0M260 150h0M268 150h0M277 150h0M286 150h0M295 150h0M304 150h0M312 150h0M321 150h0M330 150h0M339 150h0M348 150h0M356 150h0M365 150h0M374 150h0M383 150h0M392 150h0M400 150h0M409 150h0M418 150h0M673 150h0M682 150h0M691 150h0M700 150h0M708 150h0M717 150h0M726 150h0M735 150h0M744 150h0M752 150h0M761 150h0M770 150h0M779 150h0M788 150h0M796 150h0M805 150h0M814 150h0M823 150h0M840 150h0M849 150h0M858 150h0M867 150h0M876 150h0M884 150h0M893 150h0M902 150h0M911 150h0M920 150h0M928 150h0M937 150h0M946 150h0M955 150h0M964 150h0M972 150h0M981 150h0M990 150h0M999 150h0M1008 150h0M1016 150h0M1025 150h0M1034 150h0M1043 150h0M1052 150h0M1060 150h0M1069 150h0M1078 150h0M1087 150h0M1096 150h0M1104 150h0M1113 150h0M1122 150h0M1131 150h0M1140 150h0M1148 150h0M1157 150h0M1166 150h0M1175 150h0M1184 150h0M1192 150h0M1201 150h0M1210 150h0M1219 150h0M1228 150h0M185 158h0M194 158h0M202 158h0M211 158h0M220 158h0M229 158h0M238 158h0M246 158h0M255 158h0M264 158h0M273 158h0M282 158h0M290 158h0M299 158h0M308 158h0M317 158h0M326 158h0M334 158h0M343 158h0M352 158h0M361 158h0M370 158h0M378 158h0M387 158h0M396 158h0M405 158h0M414 158h0M678 158h0M686 158h0M695 158h0M704 158h0M713 158h0M722 158h0M730 158h0M748 158h0M757 158h0M766 158h0M774 158h0M783 158h0M792 158h0M845 158h0M854 158h0M862 158h0M898 158h0M906 158h0M915 158h0M924 158h0M933 158h0M942 158h0M950 158h0M959 158h0M968 158h0M977 158h0M986 158h0M994 158h0M1003 158h0M1012 158h0M1021 158h0M1030 158h0M1038 158h0M1047 158h0M1056 158h0M1065 158h0M1074 158h0M1082 158h0M1091 158h0M1100 158h0M1109 158h0M1118 158h0M1126 158h0M1135 158h0M1144 158h0M1153 158h0M1162 158h0M1170 158h0M1179 158h0M1188 158h0M1197 158h0M1206 158h0M1214 158h0M1223 158h0M1250 158h0M189 167h0M198 167h0M207 167h0M216 167h0M224 167h0M233 167h0M242 167h0M251 167h0M260 167h0M268 167h0M277 167h0M286 167h0M295 167h0M304 167h0M312 167h0M321 167h0M330 167h0M339 167h0M348 167h0M356 167h0M365 167h0M374 167h0M383 167h0M392 167h0M647 167h0M656 167h0M664 167h0M673 167h0M682 167h0M691 167h0M735 167h0M761 167h0M770 167h0M779 167h0M788 167h0M849 167h0M858 167h0M867 167h0M902 167h0M911 167h0M920 167h0M928 167h0M937 167h0M946 167h0M955 167h0M964 167h0M972 167h0M981 167h0M990 167h0M999 167h0M1008 167h0M1016 167h0M1025 167h0M1034 167h0M1043 167h0M1052 167h0M1060 167h0M1069 167h0M1078 167h0M1087 167h0M1096 167h0M1104 167h0M1113 167h0M1122 167h0M1131 167h0M1140 167h0M1148 167h0M1157 167h0M1166 167h0M1175 167h0M1184 167h0M1192 167h0M194 176h0M202 176h0M211 176h0M220 176h0M229 176h0M238 176h0M246 176h0M255 176h0M264 176h0M273 176h0M282 176h0M290 176h0M299 176h0M308 176h0M317 176h0M326 176h0M334 176h0M343 176h0M352 176h0M361 176h0M370 176h0M378 176h0M651 176h0M660 176h0M669 176h0M678 176h0M748 176h0M766 176h0M792 176h0M801 176h0M810 176h0M818 176h0M827 176h0M836 176h0M845 176h0M854 176h0M862 176h0M871 176h0M898 176h0M906 176h0M915 176h0M924 176h0M933 176h0M942 176h0M950 176h0M959 176h0M968 176h0M977 176h0M986 176h0M994 176h0M1003 176h0M1012 176h0M1021 176h0M1030 176h0M1038 176h0M1047 176h0M1056 176h0M1065 176h0M1074 176h0M1082 176h0M1091 176h0M1100 176h0M1109 176h0M1118 176h0M1126 176h0M1135 176h0M1144 176h0M1153 176h0M1179 176h0M1188 176h0M1241 176h0M198 185h0M207 185h0M216 185h0M224 185h0M233 185h0M242 185h0M251 185h0M260 185h0M268 185h0M277 185h0M286 185h0M295 185h0M304 185h0M312 185h0M321 185h0M330 185h0M339 185h0M348 185h0M356 185h0M365 185h0M374 185h0M647 185h0M656 185h0M664 185h0M673 185h0M735 185h0M770 185h0M796 185h0M805 185h0M814 185h0M823 185h0M832 185h0M840 185h0M849 185h0M858 185h0M867 185h0M876 185h0M902 185h0M911 185h0M920 185h0M928 185h0M937 185h0M946 185h0M955 185h0M964 185h0M972 185h0M981 185h0M990 185h0M999 185h0M1008 185h0M1016 185h0M1025 185h0M1034 185h0M1043 185h0M1052 185h0M1060 185h0M1069 185h0M1078 185h0M1087 185h0M1096 185h0M1104 185h0M1113 185h0M1122 185h0M1131 185h0M1140 185h0M1148 185h0M1184 185h0M1192 185h0M1236 185h0M1245 185h0M202 194h0M211 194h0M220 194h0M229 194h0M238 194h0M246 194h0M255 194h0M264 194h0M273 194h0M282 194h0M290 194h0M299 194h0M308 194h0M317 194h0M326 194h0M334 194h0M343 194h0M352 194h0M361 194h0M370 194h0M660 194h0M678 194h0M686 194h0M695 194h0M704 194h0M713 194h0M722 194h0M827 194h0M836 194h0M845 194h0M854 194h0M862 194h0M871 194h0M880 194h0M889 194h0M898 194h0M906 194h0M915 194h0M924 194h0M933 194h0M942 194h0M950 194h0M959 194h0M968 194h0M977 194h0M986 194h0M994 194h0M1003 194h0M1012 194h0M1021 194h0M1030 194h0M1038 194h0M1047 194h0M1056 194h0M1065 194h0M1074 194h0M1082 194h0M1091 194h0M1100 194h0M1109 194h0M1118 194h0M1126 194h0M1135 194h0M1144 194h0M1153 194h0M1188 194h0M1214 194h0M1223 194h0M1232 194h0M1241 194h0M207 202h0M216 202h0M224 202h0M233 202h0M242 202h0M251 202h0M260 202h0M268 202h0M277 202h0M286 202h0M295 202h0M304 202h0M312 202h0M321 202h0M330 202h0M339 202h0M348 202h0M356 202h0M365 202h0M656 202h0M664 202h0M673 202h0M682 202h0M691 202h0M700 202h0M708 202h0M717 202h0M823 202h0M832 202h0M840 202h0M849 202h0M858 202h0M867 202h0M876 202h0M884 202h0M893 202h0M902 202h0M911 202h0M920 202h0M928 202h0M937 202h0M946 202h0M955 202h0M964 202h0M972 202h0M981 202h0M990 202h0M999 202h0M1008 202h0M1016 202h0M1025 202h0M1034 202h0M1043 202h0M1052 202h0M1060 202h0M1069 202h0M1078 202h0M1087 202h0M1096 202h0M1104 202h0M1113 202h0M1122 202h0M1131 202h0M1140 202h0M1148 202h0M1157 202h0M1201 202h0M220 211h0M229 211h0M238 211h0M246 211h0M255 211h0M264 211h0M273 211h0M282 211h0M290 211h0M299 211h0M308 211h0M317 211h0M326 211h0M334 211h0M343 211h0M352 211h0M642 211h0M651 211h0M660 211h0M669 211h0M678 211h0M686 211h0M695 211h0M704 211h0M713 211h0M722 211h0M730 211h0M739 211h0M748 211h0M766 211h0M774 211h0M783 211h0M792 211h0M810 211h0M827 211h0M836 211h0M845 211h0M854 211h0M862 211h0M871 211h0M880 211h0M889 211h0M898 211h0M906 211h0M915 211h0M924 211h0M933 211h0M942 211h0M950 211h0M959 211h0M968 211h0M977 211h0M986 211h0M994 211h0M1003 211h0M1012 211h0M1021 211h0M1030 211h0M1038 211h0M1047 211h0M1056 211h0M1065 211h0M1074 211h0M1082 211h0M1091 211h0M1100 211h0M1109 211h0M1118 211h0M1126 211h0M1135 211h0M1144 211h0M1153 211h0M1162 211h0M224 220h0M233 220h0M242 220h0M251 220h0M260 220h0M268 220h0M277 220h0M286 220h0M295 220h0M348 220h0M356 220h0M638 220h0M647 220h0M656 220h0M664 220h0M673 220h0M682 220h0M691 220h0M700 220h0M708 220h0M717 220h0M726 220h0M735 220h0M744 220h0M752 220h0M761 220h0M770 220h0M779 220h0M788 220h0M796 220h0M805 220h0M823 220h0M832 220h0M840 220h0M849 220h0M858 220h0M867 220h0M876 220h0M884 220h0M893 220h0M902 220h0M911 220h0M920 220h0M928 220h0M937 220h0M946 220h0M955 220h0M964 220h0M972 220h0M981 220h0M990 220h0M999 220h0M1008 220h0M1016 220h0M1025 220h0M1034 220h0M1043 220h0M1052 220h0M1060 220h0M1069 220h0M1078 220h0M1087 220h0M1096 220h0M1104 220h0M1113 220h0M1122 220h0M1131 220h0M1140 220h0M1148 220h0M1157 220h0M1166 220h0M229 229h0M238 229h0M246 229h0M255 229h0M264 229h0M273 229h0M282 229h0M290 229h0M634 229h0M642 229h0M651 229h0M660 229h0M669 229h0M678 229h0M686 229h0M695 229h0M704 229h0M713 229h0M722 229h0M730 229h0M739 229h0M748 229h0M757 229h0M766 229h0M774 229h0M783 229h0M792 229h0M801 229h0M810 229h0M827 229h0M836 229h0M845 229h0M854 229h0M862 229h0M871 229h0M880 229h0M906 229h0M915 229h0M924 229h0M933 229h0M942 229h0M950 229h0M959 229h0M968 229h0M977 229h0M986 229h0M994 229h0M1003 229h0M1012 229h0M1021 229h0M1030 229h0M1038 229h0M1047 229h0M1056 229h0M1065 229h0M1074 229h0M1082 229h0M1091 229h0M1100 229h0M1109 229h0M1118 229h0M1126 229h0M1135 229h0M1144 229h0M1153 229h0M242 238h0M251 238h0M260 238h0M268 238h0M277 238h0M286 238h0M620 238h0M629 238h0M638 238h0M647 238h0M656 238h0M664 238h0M673 238h0M682 238h0M691 238h0M700 238h0M708 238h0M717 238h0M726 238h0M735 238h0M744 238h0M752 238h0M761 238h0M770 238h0M779 238h0M788 238h0M796 238h0M805 238h0M814 238h0M832 238h0M840 238h0M849 238h0M858 238h0M867 238h0M876 238h0M884 238h0M902 238h0M955 238h0M964 238h0M972 238h0M981 238h0M990 238h0M999 238h0M1008 238h0M1016 238h0M1025 238h0M1034 238h0M1043 238h0M1052 238h0M1060 238h0M1069 238h0M1078 238h0M1087 238h0M1096 238h0M1104 238h0M1113 238h0M1122 238h0M1131 238h0M1140 238h0M1148 238h0M1166 238h0M264 246h0M273 246h0M282 246h0M361 246h0M616 246h0M625 246h0M634 246h0M642 246h0M651 246h0M660 246h0M669 246h0M678 246h0M686 246h0M695 246h0M704 246h0M713 246h0M722 246h0M730 246h0M739 246h0M748 246h0M757 246h0M766 246h0M774 246h0M783 246h0M792 246h0M801 246h0M810 246h0M818 246h0M836 246h0M845 246h0M854 246h0M862 246h0M871 246h0M880 246h0M889 246h0M898 246h0M906 246h0M915 246h0M959 246h0M968 246h0M977 246h0M986 246h0M994 246h0M1003 246h0M1012 246h0M1021 246h0M1030 246h0M1038 246h0M1047 246h0M1056 246h0M1065 246h0M1074 246h0M1082 246h0M1091 246h0M1100 246h0M1109 246h0M1118 246h0M1126 246h0M1135 246h0M260 255h0M268 255h0M277 255h0M286 255h0M321 255h0M330 255h0M374 255h0M383 255h0M620 255h0M629 255h0M638 255h0M647 255h0M656 255h0M664 255h0M673 255h0M682 255h0M691 255h0M700 255h0M708 255h0M717 255h0M726 255h0M735 255h0M744 255h0M752 255h0M761 255h0M770 255h0M779 255h0M788 255h0M796 255h0M805 255h0M814 255h0M823 255h0M840 255h0M849 255h0M858 255h0M867 255h0M876 255h0M884 255h0M893 255h0M902 255h0M911 255h0M972 255h0M981 255h0M990 255h0M999 255h0M1008 255h0M1016 255h0M1052 255h0M1060 255h0M1069 255h0M1078 255h0M1087 255h0M1096 255h0M1104 255h0M273 264h0M282 264h0M290 264h0M299 264h0M308 264h0M317 264h0M326 264h0M396 264h0M616 264h0M625 264h0M634 264h0M642 264h0M651 264h0M660 264h0M669 264h0M678 264h0M686 264h0M695 264h0M704 264h0M713 264h0M722 264h0M730 264h0M739 264h0M748 264h0M757 264h0M766 264h0M774 264h0M783 264h0M792 264h0M801 264h0M810 264h0M818 264h0M827 264h0M845 264h0M854 264h0M862 264h0M871 264h0M880 264h0M889 264h0M898 264h0M977 264h0M986 264h0M994 264h0M1003 264h0M1012 264h0M1065 264h0M1074 264h0M1082 264h0M1091 264h0M1100 264h0M1162 264h0M312 273h0M321 273h0M330 273h0M339 273h0M612 273h0M620 273h0M629 273h0M638 273h0M647 273h0M656 273h0M664 273h0M673 273h0M682 273h0M691 273h0M700 273h0M708 273h0M717 273h0M726 273h0M735 273h0M744 273h0M752 273h0M761 273h0M770 273h0M779 273h0M788 273h0M796 273h0M805 273h0M814 273h0M823 273h0M832 273h0M849 273h0M858 273h0M867 273h0M876 273h0M884 273h0M981 273h0M990 273h0M999 273h0M1078 273h0M1087 273h0M1096 273h0M1104 273h0M1166 273h0M326 282h0M334 282h0M343 282h0M616 282h0M625 282h0M634 282h0M642 282h0M651 282h0M660 282h0M669 282h0M678 282h0M686 282h0M695 282h0M704 282h0M713 282h0M722 282h0M730 282h0M739 282h0M748 282h0M757 282h0M766 282h0M774 282h0M783 282h0M792 282h0M801 282h0M810 282h0M818 282h0M827 282h0M836 282h0M845 282h0M854 282h0M862 282h0M986 282h0M994 282h0M1074 282h0M1082 282h0M1091 282h0M1100 282h0M1109 282h0M1170 282h0M339 290h0M392 290h0M620 290h0M629 290h0M638 290h0M647 290h0M656 290h0M664 290h0M673 290h0M682 290h0M691 290h0M700 290h0M708 290h0M717 290h0M726 290h0M735 290h0M744 290h0M752 290h0M761 290h0M770 290h0M779 290h0M788 290h0M796 290h0M805 290h0M814 290h0M823 290h0M832 290h0M840 290h0M849 290h0M876 290h0M990 290h0M999 290h0M1078 290h0M1096 290h0M1104 290h0M343 299h0M352 299h0M361 299h0M378 299h0M387 299h0M396 299h0M405 299h0M414 299h0M422 299h0M431 299h0M634 299h0M642 299h0M651 299h0M660 299h0M669 299h0M678 299h0M686 299h0M695 299h0M704 299h0M713 299h0M722 299h0M730 299h0M739 299h0M748 299h0M757 299h0M766 299h0M774 299h0M783 299h0M792 299h0M801 299h0M810 299h0M818 299h0M827 299h0M836 299h0M845 299h0M854 299h0M862 299h0M871 299h0M880 299h0M994 299h0M1100 299h0M374 308h0M383 308h0M392 308h0M400 308h0M409 308h0M418 308h0M427 308h0M436 308h0M444 308h0M638 308h0M647 308h0M656 308h0M664 308h0M673 308h0M682 308h0M691 308h0M700 308h0M708 308h0M717 308h0M726 308h0M735 308h0M744 308h0M752 308h0M761 308h0M770 308h0M779 308h0M788 308h0M796 308h0M805 308h0M814 308h0M823 308h0M832 308h0M840 308h0M849 308h0M858 308h0M867 308h0M876 308h0M1175 308h0M1184 308h0M378 317h0M387 317h0M396 317h0M405 317h0M414 317h0M422 317h0M431 317h0M440 317h0M449 317h0M458 317h0M466 317h0M651 317h0M704 317h0M713 317h0M722 317h0M730 317h0M739 317h0M748 317h0M757 317h0M766 317h0M774 317h0M783 317h0M792 317h0M801 317h0M810 317h0M818 317h0M827 317h0M836 317h0M845 317h0M854 317h0M862 317h0M871 317h0M1065 317h0M1091 317h0M1144 317h0M1153 317h0M374 326h0M383 326h0M392 326h0M400 326h0M409 326h0M418 326h0M427 326h0M436 326h0M444 326h0M453 326h0M462 326h0M471 326h0M726 326h0M735 326h0M744 326h0M752 326h0M761 326h0M770 326h0M779 326h0M788 326h0M796 326h0M805 326h0M814 326h0M823 326h0M832 326h0M840 326h0M849 326h0M858 326h0M1131 326h0M1140 326h0M1148 326h0M361 334h0M370 334h0M378 334h0M387 334h0M396 334h0M405 334h0M414 334h0M422 334h0M431 334h0M440 334h0M449 334h0M458 334h0M466 334h0M475 334h0M722 334h0M730 334h0M739 334h0M748 334h0M757 334h0M766 334h0M774 334h0M783 334h0M792 334h0M801 334h0M810 334h0M818 334h0M827 334h0M836 334h0M845 334h0M854 334h0M1082 334h0M1118 334h0M1126 334h0M1135 334h0M1144 334h0M1162 334h0M1170 334h0M365 343h0M374 343h0M383 343h0M392 343h0M400 343h0M409 343h0M418 343h0M427 343h0M436 343h0M444 343h0M453 343h0M462 343h0M471 343h0M480 343h0M488 343h0M726 343h0M735 343h0M744 343h0M752 343h0M761 343h0M770 343h0M779 343h0M788 343h0M796 343h0M805 343h0M814 343h0M823 343h0M832 343h0M840 343h0M1087 343h0M1122 343h0M1131 343h0M1140 343h0M1166 343h0M1210 343h0M361 352h0M370 352h0M378 352h0M387 352h0M396 352h0M405 352h0M414 352h0M422 352h0M431 352h0M440 352h0M449 352h0M458 352h0M466 352h0M475 352h0M484 352h0M493 352h0M502 352h0M510 352h0M519 352h0M528 352h0M730 352h0M739 352h0M748 352h0M757 352h0M766 352h0M774 352h0M783 352h0M792 352h0M801 352h0M810 352h0M818 352h0M827 352h0M836 352h0M1091 352h0M1100 352h0M1162 352h0M1223 352h0M1232 352h0M1241 352h0M1250 352h0M365 361h0M374 361h0M383 361h0M392 361h0M400 361h0M409 361h0M418 361h0M427 361h0M436 361h0M444 361h0M453 361h0M462 361h0M471 361h0M480 361h0M488 361h0M497 361h0M506 361h0M515 361h0M524 361h0M532 361h0M735 361h0M744 361h0M752 361h0M761 361h0M770 361h0M779 361h0M788 361h0M796 361h0M805 361h0M814 361h0M823 361h0M832 361h0M1236 361h0M1245 361h0M1254 361h0M1263 361h0M370 370h0M378 370h0M387 370h0M396 370h0M405 370h0M414 370h0M422 370h0M431 370h0M440 370h0M449 370h0M458 370h0M466 370h0M475 370h0M484 370h0M493 370h0M502 370h0M510 370h0M519 370h0M528 370h0M537 370h0M739 370h0M748 370h0M757 370h0M766 370h0M774 370h0M783 370h0M792 370h0M801 370h0M810 370h0M818 370h0M827 370h0M836 370h0M1135 370h0M1241 370h0M1250 370h0M1267 370h0M374 378h0M383 378h0M392 378h0M400 378h0M409 378h0M418 378h0M427 378h0M436 378h0M444 378h0M453 378h0M462 378h0M471 378h0M480 378h0M488 378h0M497 378h0M506 378h0M515 378h0M524 378h0M532 378h0M735 378h0M744 378h0M752 378h0M761 378h0M770 378h0M779 378h0M788 378h0M796 378h0M805 378h0M814 378h0M823 378h0M832 378h0M840 378h0M378 387h0M387 387h0M396 387h0M405 387h0M414 387h0M422 387h0M431 387h0M440 387h0M449 387h0M458 387h0M466 387h0M475 387h0M484 387h0M493 387h0M502 387h0M510 387h0M519 387h0M528 387h0M739 387h0M748 387h0M757 387h0M766 387h0M774 387h0M783 387h0M792 387h0M801 387h0M810 387h0M818 387h0M827 387h0M836 387h0M1206 387h0M1214 387h0M1250 387h0M383 396h0M392 396h0M400 396h0M409 396h0M418 396h0M427 396h0M436 396h0M444 396h0M453 396h0M462 396h0M471 396h0M480 396h0M488 396h0M497 396h0M506 396h0M515 396h0M524 396h0M735 396h0M744 396h0M752 396h0M761 396h0M770 396h0M779 396h0M788 396h0M796 396h0M805 396h0M814 396h0M823 396h0M832 396h0M867 396h0M876 396h0M1184 396h0M1192 396h0M1201 396h0M1210 396h0M1219 396h0M1254 396h0M396 405h0M405 405h0M414 405h0M422 405h0M431 405h0M440 405h0M449 405h0M458 405h0M466 405h0M475 405h0M484 405h0M493 405h0M502 405h0M510 405h0M519 405h0M730 405h0M739 405h0M748 405h0M757 405h0M766 405h0M774 405h0M783 405h0M792 405h0M801 405h0M810 405h0M818 405h0M827 405h0M862 405h0M871 405h0M1179 405h0M1188 405h0M1197 405h0M1206 405h0M1214 405h0M1223 405h0M1232 405h0M1241 405h0M1250 405h0M1258 405h0M400 414h0M409 414h0M418 414h0M427 414h0M436 414h0M444 414h0M453 414h0M462 414h0M471 414h0M480 414h0M488 414h0M497 414h0M506 414h0M515 414h0M735 414h0M744 414h0M752 414h0M761 414h0M770 414h0M779 414h0M788 414h0M796 414h0M805 414h0M814 414h0M858 414h0M867 414h0M876 414h0M1166 414h0M1175 414h0M1184 414h0M1192 414h0M1201 414h0M1210 414h0M1219 414h0M1228 414h0M1236 414h0M1245 414h0M1254 414h0M1263 414h0M405 422h0M414 422h0M422 422h0M431 422h0M440 422h0M449 422h0M458 422h0M466 422h0M475 422h0M484 422h0M493 422h0M502 422h0M510 422h0M739 422h0M748 422h0M757 422h0M766 422h0M774 422h0M783 422h0M792 422h0M801 422h0M810 422h0M818 422h0M862 422h0M871 422h0M1144 422h0M1153 422h0M1162 422h0M1170 422h0M1179 422h0M1188 422h0M1197 422h0M1206 422h0M1214 422h0M1223 422h0M1232 422h0M1241 422h0M1250 422h0M1258 422h0M1267 422h0M400 431h0M409 431h0M418 431h0M427 431h0M436 431h0M444 431h0M453 431h0M462 431h0M471 431h0M480 431h0M488 431h0M497 431h0M744 431h0M752 431h0M761 431h0M770 431h0M779 431h0M788 431h0M796 431h0M805 431h0M814 431h0M858 431h0M867 431h0M1140 431h0M1148 431h0M1157 431h0M1166 431h0M1175 431h0M1184 431h0M1192 431h0M1201 431h0M1210 431h0M1219 431h0M1228 431h0M1236 431h0M1245 431h0M1254 431h0M1263 431h0M1272 431h0M1280 431h0M405 440h0M414 440h0M422 440h0M431 440h0M440 440h0M449 440h0M458 440h0M466 440h0M475 440h0M484 440h0M748 440h0M757 440h0M766 440h0M774 440h0M783 440h0M792 440h0M801 440h0M810 440h0M1144 440h0M1153 440h0M1162 440h0M1170 440h0M1179 440h0M1188 440h0M1197 440h0M1206 440h0M1214 440h0M1223 440h0M1232 440h0M1241 440h0M1250 440h0M1258 440h0M1267 440h0M1276 440h0M1285 440h0M400 449h0M409 449h0M418 449h0M427 449h0M436 449h0M444 449h0M453 449h0M462 449h0M471 449h0M480 449h0M752 449h0M761 449h0M770 449h0M779 449h0M788 449h0M796 449h0M805 449h0M1140 449h0M1148 449h0M1157 449h0M1166 449h0M1175 449h0M1184 449h0M1192 449h0M1201 449h0M1210 449h0M1219 449h0M1228 449h0M1236 449h0M1245 449h0M1254 449h0M1263 449h0M1272 449h0M1280 449h0M1289 449h0M396 458h0M405 458h0M414 458h0M422 458h0M431 458h0M440 458h0M449 458h0M458 458h0M466 458h0M475 458h0M757 458h0M766 458h0M774 458h0M783 458h0M792 458h0M801 458h0M1144 458h0M1153 458h0M1162 458h0M1170 458h0M1179 458h0M1188 458h0M1197 458h0M1206 458h0M1214 458h0M1223 458h0M1232 458h0M1241 458h0M1250 458h0M1258 458h0M1267 458h0M1276 458h0M1285 458h0M400 466h0M409 466h0M418 466h0M427 466h0M436 466h0M444 466h0M453 466h0M462 466h0M761 466h0M770 466h0M779 466h0M788 466h0M1140 466h0M1148 466h0M1157 466h0M1166 466h0M1175 466h0M1219 466h0M1228 466h0M1236 466h0M1245 466h0M1254 466h0M1263 466h0M1272 466h0M1280 466h0M396 475h0M405 475h0M414 475h0M422 475h0M431 475h0M440 475h0M449 475h0M1153 475h0M1232 475h0M1241 475h0M1250 475h0M1258 475h0M1267 475h0M1276 475h0M392 484h0M400 484h0M409 484h0M418 484h0M427 484h0M436 484h0M444 484h0M1245 484h0M1254 484h0M1263 484h0M1272 484h0M1280 484h0M387 493h0M396 493h0M405 493h0M414 493h0M422 493h0M1382 493h0M392 502h0M400 502h0M409 502h0M418 502h0M1263 502h0M1272 502h0M1368 502h0M387 510h0M396 510h0M405 510h0M414 510h0M422 510h0M1355 510h0M1364 510h0M383 519h0M392 519h0M400 519h0M409 519h0M1351 519h0M1360 519h0M378 528h0M387 528h0M396 528h0M405 528h0M383 537h0M392 537h0M400 537h0M387 546h0M396 546h0M405 546h0M400 554h0%22 stroke=%22%2314243D%22 stroke-width=%224.6%22 stroke-linecap=%22round%22/%3E%3Cg stroke=%22%23B99A62%22 stroke-width=%222%22 stroke-dasharray=%223 7%22 stroke-linecap=%22round%22 opacity=%22.9%22%3E%3Cpath d=%22M323 281Q354 188 384 173%22/%3E%3Cpath d=%22M323 281Q494 113 665 174%22/%3E%3Cpath d=%22M323 281Q408 283 494 430%22/%3E%3Cpath d=%22M323 281Q514 87 704 151%22/%3E%3C/g%3E%3Cg fill=%22%23B99A62%22%3E%3Ccircle cx=%22384%22 cy=%22173%22 r=%224.5%22/%3E%3Ccircle cx=%22665%22 cy=%22174%22 r=%224.5%22/%3E%3Ccircle cx=%22494%22 cy=%22430%22 r=%224.5%22/%3E%3Ccircle cx=%22704%22 cy=%22151%22 r=%224.5%22/%3E%3C/g%3E%3Ccircle cx=%22323%22 cy=%22281%22 r=%2215%22 stroke=%22%23B99A62%22 stroke-width=%222%22 opacity=%22.55%22/%3E%3Ccircle cx=%22323%22 cy=%22281%22 r=%227%22 fill=%22%23B99A62%22/%3E%3C/svg%3E") center 40px / clamp(680px, 100%, 1240px) auto no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* Títulos de sección con filete dorado */
+.section-heading .eyebrow::before {
+  content: ""; width: 28px; height: 1px; background: var(--gold);
+}
+.hero h1 { font-size: clamp(2.3rem, 5vw, 3.9rem); line-height: 1.08; }
+.section-heading h2, .contact-panel h2 { letter-spacing: -.01em; }
+
+/* Marco de foto con contorno desplazado */
+.photo-frame::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 28px;
+  border: 1px solid var(--gold); transform: translate(14px, 14px);
+}
+
+/* Navegación: subrayado dorado al pasar el cursor */
+.nav-links a:not(.nav-contact):not(.language-button) { position: relative; }
+.nav-links a:not(.nav-contact):not(.language-button)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.nav-links a:not(.nav-contact):not(.language-button):hover::after,
+.nav-links a:not(.nav-contact):not(.language-button):focus-visible::after { transform: scaleX(1); }
+
+/* Tarjetas: línea dorada superior para dar jerarquía */
+.project-card, .skill-card { position: relative; }
+.project-card::before, .skill-card::before {
+  content: ""; position: absolute; left: 1.5rem; right: 1.5rem; top: -1px; height: 2px; z-index: 2;
+  background: linear-gradient(90deg, var(--gold), transparent); opacity: 0; transition: opacity .25s;
+}
+.project-card:hover::before, .skill-card:hover::before { opacity: 1; }
+.project-card:hover, .skill-card:hover { transform: translateY(-3px); }
+.project-card, .skill-card { transition: border-color .25s, box-shadow .25s, transform .25s; }
+
+/* Contacto: bloque azul marino para cerrar la página con contraste */
+.contact-panel {
+  color: #fff; border-color: rgba(185, 154, 98, .45);
+  background:
+    radial-gradient(420px 260px at 90% 0%, rgba(185, 154, 98, .22), transparent 70%),
+    linear-gradient(135deg, var(--navy-deep), var(--navy));
+  box-shadow: 0 24px 60px rgba(16, 29, 53, .22);
+}
+.contact-panel h2 { color: #fff; }
+.contact-panel .eyebrow { color: var(--gold-light); }
+.contact-panel > p:not(.eyebrow) { color: rgba(255, 255, 255, .78); }
+.contact-panel .gradient-text {
+  background: linear-gradient(100deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; background-clip: text;
+}
+.contact-panel .button-primary { background: var(--gold); color: var(--navy-deep); box-shadow: none; }
+.contact-panel .button-primary:hover { background: var(--gold-light); }
+.contact-panel .button-secondary { background: transparent; color: #fff; border-color: rgba(216, 196, 155, .6); }
+.contact-panel .button-secondary:hover { background: rgba(255, 255, 255, .08); border-color: var(--gold-light); }
+
+/* Línea de tiempo: la fecha destaca más */
+.timeline-date { color: var(--gold-dark); }
+
+/* Responsive fino */
+@media (max-width: 900px) {
+  .orbit-one { width: 360px; }
+  .orbit-two { width: 290px; }
+  .photo-frame::after { transform: translate(10px, 10px); }
+}
+@media (max-width: 680px) {
+  .nav-shell { min-height: 64px; }
+  .hero { padding-block: 2.25rem 3rem; }
+  .hero-visual { min-height: 360px; }
+  .orbit-one { width: 300px; }
+  .orbit-two { width: 240px; }
+  .photo-frame { width: min(240px, 66%); }
+  .panel { padding: 1.5rem; }
+  .large-copy { font-size: 1.2rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .nav-links a:not(.nav-contact):not(.language-button)::after { display: none; }
+}
+@media (max-width: 480px) {
+  .section-wrap, .nav-shell { width: min(100% - 2rem, var(--wrap)); }
+  .hero-actions .button, .contact-actions .button { width: 100%; justify-content: center; }
+  .hero-meta { gap: .6rem 1.2rem; }
+  .chip-code, .chip-spark { font-size: .78rem; padding: .45rem .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover, .skill-card:hover { transform: none; }
+}
+
+@media (max-width: 680px) {
+  main::after { opacity: .14; background-position: 40% 70px; background-size: 760px auto; }
+}
+
+
+/* =====================================================
+   V3: Contacto corporativo + iconos blancos
+   ===================================================== */
+.contact-section {
+  position: relative; overflow: hidden; padding: 5.5rem 0; color: #fff;
+  background:
+    radial-gradient(700px 420px at 85% 10%, rgba(185, 154, 98, .20), transparent 70%),
+    linear-gradient(135deg, var(--navy-deep), var(--navy));
+  border-top: 1px solid rgba(185, 154, 98, .5);
+}
+.contact-section::before {
+  content: ""; position: absolute; right: -3%; top: 50%;
+  width: min(980px, 92%); aspect-ratio: 1400 / 564; transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 564%22 fill=%22none%22%3E%3Cpath d=%22M330 9h0M339 9h0M348 9h0M356 9h0M365 9h0M374 9h0M383 9h0M392 9h0M400 9h0M409 9h0M444 9h0M453 9h0M462 9h0M471 9h0M480 9h0M488 9h0M497 9h0M506 9h0M515 9h0M524 9h0M532 9h0M541 9h0M550 9h0M559 9h0M568 9h0M576 9h0M585 9h0M308 18h0M317 18h0M326 18h0M334 18h0M343 18h0M352 18h0M361 18h0M370 18h0M378 18h0M414 18h0M422 18h0M431 18h0M440 18h0M449 18h0M458 18h0M466 18h0M475 18h0M484 18h0M493 18h0M502 18h0M510 18h0M519 18h0M528 18h0M537 18h0M546 18h0M554 18h0M563 18h0M572 18h0M581 18h0M590 18h0M598 18h0M321 26h0M330 26h0M400 26h0M409 26h0M418 26h0M427 26h0M436 26h0M444 26h0M453 26h0M462 26h0M471 26h0M480 26h0M488 26h0M497 26h0M506 26h0M515 26h0M524 26h0M532 26h0M541 26h0M550 26h0M559 26h0M568 26h0M576 26h0M585 26h0M594 26h0M603 26h0M1096 26h0M422 35h0M431 35h0M440 35h0M449 35h0M458 35h0M466 35h0M475 35h0M484 35h0M493 35h0M502 35h0M510 35h0M519 35h0M528 35h0M537 35h0M546 35h0M554 35h0M563 35h0M572 35h0M581 35h0M590 35h0M598 35h0M915 35h0M924 35h0M933 35h0M942 35h0M1038 35h0M1047 35h0M1056 35h0M1065 35h0M1074 35h0M1082 35h0M1091 35h0M1100 35h0M1109 35h0M1118 35h0M216 44h0M224 44h0M233 44h0M242 44h0M251 44h0M260 44h0M321 44h0M330 44h0M339 44h0M348 44h0M356 44h0M365 44h0M436 44h0M444 44h0M453 44h0M462 44h0M471 44h0M480 44h0M488 44h0M497 44h0M506 44h0M515 44h0M524 44h0M532 44h0M541 44h0M550 44h0M559 44h0M568 44h0M576 44h0M585 44h0M594 44h0M902 44h0M911 44h0M920 44h0M1016 44h0M1025 44h0M1034 44h0M1043 44h0M1052 44h0M1060 44h0M1069 44h0M1078 44h0M1087 44h0M1096 44h0M1104 44h0M1113 44h0M1122 44h0M1131 44h0M1140 44h0M1148 44h0M1157 44h0M1166 44h0M1175 44h0M1184 44h0M53 53h0M62 53h0M70 53h0M211 53h0M220 53h0M229 53h0M238 53h0M246 53h0M255 53h0M264 53h0M343 53h0M352 53h0M361 53h0M370 53h0M378 53h0M387 53h0M458 53h0M466 53h0M475 53h0M484 53h0M493 53h0M502 53h0M510 53h0M519 53h0M528 53h0M537 53h0M546 53h0M554 53h0M563 53h0M572 53h0M581 53h0M590 53h0M783 53h0M792 53h0M898 53h0M906 53h0M977 53h0M986 53h0M994 53h0M1003 53h0M1012 53h0M1021 53h0M1030 53h0M1038 53h0M1047 53h0M1056 53h0M1065 53h0M1074 53h0M1082 53h0M1091 53h0M1100 53h0M1109 53h0M1118 53h0M1126 53h0M1135 53h0M1144 53h0M1153 53h0M1162 53h0M1170 53h0M1179 53h0M1188 53h0M1197 53h0M1206 53h0M1214 53h0M1223 53h0M1232 53h0M1241 53h0M1250 53h0M1258 53h0M1267 53h0M1276 53h0M1285 53h0M1294 53h0M1302 53h0M31 62h0M40 62h0M48 62h0M57 62h0M66 62h0M75 62h0M84 62h0M92 62h0M101 62h0M110 62h0M119 62h0M128 62h0M136 62h0M145 62h0M154 62h0M163 62h0M172 62h0M180 62h0M189 62h0M198 62h0M207 62h0M216 62h0M242 62h0M330 62h0M339 62h0M374 62h0M383 62h0M392 62h0M400 62h0M409 62h0M471 62h0M480 62h0M488 62h0M497 62h0M506 62h0M515 62h0M524 62h0M532 62h0M541 62h0M550 62h0M559 62h0M752 62h0M761 62h0M770 62h0M779 62h0M788 62h0M796 62h0M805 62h0M911 62h0M920 62h0M928 62h0M937 62h0M946 62h0M955 62h0M964 62h0M972 62h0M981 62h0M990 62h0M999 62h0M1008 62h0M1016 62h0M1025 62h0M1034 62h0M1043 62h0M1052 62h0M1060 62h0M1069 62h0M1078 62h0M1087 62h0M1096 62h0M1104 62h0M1113 62h0M1122 62h0M1131 62h0M1140 62h0M1148 62h0M1157 62h0M1166 62h0M1175 62h0M1184 62h0M1192 62h0M1201 62h0M1210 62h0M1219 62h0M1228 62h0M1236 62h0M1245 62h0M1254 62h0M1263 62h0M1272 62h0M1280 62h0M1289 62h0M1298 62h0M1307 62h0M1316 62h0M1324 62h0M1333 62h0M1342 62h0M1351 62h0M1360 62h0M1368 62h0M1377 62h0M1386 62h0M1395 62h0M18 70h0M26 70h0M35 70h0M44 70h0M53 70h0M62 70h0M70 70h0M79 70h0M88 70h0M97 70h0M106 70h0M114 70h0M123 70h0M132 70h0M141 70h0M150 70h0M158 70h0M167 70h0M176 70h0M185 70h0M194 70h0M202 70h0M211 70h0M220 70h0M229 70h0M238 70h0M246 70h0M255 70h0M264 70h0M273 70h0M282 70h0M290 70h0M299 70h0M308 70h0M317 70h0M326 70h0M334 70h0M343 70h0M378 70h0M387 70h0M396 70h0M405 70h0M414 70h0M422 70h0M475 70h0M484 70h0M493 70h0M502 70h0M510 70h0M519 70h0M528 70h0M598 70h0M607 70h0M616 70h0M739 70h0M748 70h0M757 70h0M766 70h0M774 70h0M783 70h0M792 70h0M801 70h0M810 70h0M818 70h0M845 70h0M854 70h0M862 70h0M871 70h0M880 70h0M889 70h0M898 70h0M906 70h0M915 70h0M924 70h0M933 70h0M942 70h0M950 70h0M959 70h0M968 70h0M977 70h0M986 70h0M994 70h0M1003 70h0M1012 70h0M1021 70h0M1030 70h0M1038 70h0M1047 70h0M1056 70h0M1065 70h0M1074 70h0M1082 70h0M1091 70h0M1100 70h0M1109 70h0M1118 70h0M1126 70h0M1135 70h0M1144 70h0M1153 70h0M1162 70h0M1170 70h0M1179 70h0M1188 70h0M1197 70h0M1206 70h0M1214 70h0M1223 70h0M1232 70h0M1241 70h0M1250 70h0M1258 70h0M1267 70h0M1276 70h0M1285 70h0M1294 70h0M1302 70h0M1311 70h0M1320 70h0M1329 70h0M1338 70h0M1346 70h0M1355 70h0M1364 70h0M1373 70h0M1382 70h0M1390 70h0M1399 70h0M22 79h0M31 79h0M40 79h0M48 79h0M57 79h0M66 79h0M75 79h0M84 79h0M92 79h0M101 79h0M110 79h0M119 79h0M128 79h0M136 79h0M145 79h0M154 79h0M163 79h0M172 79h0M180 79h0M189 79h0M198 79h0M207 79h0M216 79h0M224 79h0M233 79h0M242 79h0M251 79h0M260 79h0M268 79h0M277 79h0M286 79h0M295 79h0M304 79h0M312 79h0M321 79h0M330 79h0M383 79h0M392 79h0M400 79h0M409 79h0M418 79h0M480 79h0M488 79h0M497 79h0M506 79h0M515 79h0M594 79h0M603 79h0M612 79h0M726 79h0M735 79h0M744 79h0M752 79h0M779 79h0M788 79h0M796 79h0M805 79h0M814 79h0M823 79h0M832 79h0M840 79h0M849 79h0M858 79h0M867 79h0M876 79h0M884 79h0M893 79h0M902 79h0M911 79h0M920 79h0M928 79h0M937 79h0M946 79h0M955 79h0M964 79h0M972 79h0M981 79h0M990 79h0M999 79h0M1008 79h0M1016 79h0M1025 79h0M1034 79h0M1043 79h0M1052 79h0M1060 79h0M1069 79h0M1078 79h0M1087 79h0M1096 79h0M1104 79h0M1113 79h0M1122 79h0M1131 79h0M1140 79h0M1148 79h0M1157 79h0M1166 79h0M1175 79h0M1184 79h0M1192 79h0M1201 79h0M1210 79h0M1219 79h0M1228 79h0M1236 79h0M1245 79h0M1254 79h0M1263 79h0M1272 79h0M1280 79h0M1289 79h0M1298 79h0M1307 79h0M1316 79h0M1324 79h0M1333 79h0M1342 79h0M1351 79h0M1360 79h0M1368 79h0M1377 79h0M1386 79h0M1395 79h0M26 88h0M35 88h0M44 88h0M53 88h0M62 88h0M70 88h0M79 88h0M88 88h0M97 88h0M106 88h0M114 88h0M123 88h0M132 88h0M141 88h0M150 88h0M158 88h0M167 88h0M176 88h0M185 88h0M194 88h0M202 88h0M211 88h0M220 88h0M229 88h0M238 88h0M246 88h0M255 88h0M264 88h0M273 88h0M282 88h0M290 88h0M299 88h0M308 88h0M378 88h0M387 88h0M484 88h0M493 88h0M502 88h0M510 88h0M713 88h0M722 88h0M730 88h0M739 88h0M748 88h0M774 88h0M783 88h0M792 88h0M801 88h0M810 88h0M818 88h0M827 88h0M836 88h0M845 88h0M854 88h0M862 88h0M871 88h0M880 88h0M889 88h0M898 88h0M906 88h0M915 88h0M924 88h0M933 88h0M942 88h0M950 88h0M959 88h0M968 88h0M977 88h0M986 88h0M994 88h0M1003 88h0M1012 88h0M1021 88h0M1030 88h0M1038 88h0M1047 88h0M1056 88h0M1065 88h0M1074 88h0M1082 88h0M1091 88h0M1100 88h0M1109 88h0M1118 88h0M1126 88h0M1135 88h0M1144 88h0M1153 88h0M1162 88h0M1170 88h0M1179 88h0M1188 88h0M1197 88h0M1206 88h0M1214 88h0M1223 88h0M1232 88h0M1241 88h0M1250 88h0M1258 88h0M1267 88h0M1276 88h0M1285 88h0M1294 88h0M1302 88h0M1311 88h0M1320 88h0M1329 88h0M1338 88h0M1346 88h0M1355 88h0M1364 88h0M1373 88h0M1382 88h0M40 97h0M48 97h0M57 97h0M66 97h0M75 97h0M128 97h0M136 97h0M145 97h0M154 97h0M163 97h0M172 97h0M180 97h0M189 97h0M198 97h0M207 97h0M216 97h0M224 97h0M233 97h0M242 97h0M251 97h0M260 97h0M268 97h0M277 97h0M286 97h0M295 97h0M304 97h0M374 97h0M383 97h0M392 97h0M400 97h0M409 97h0M418 97h0M708 97h0M717 97h0M726 97h0M735 97h0M744 97h0M796 97h0M805 97h0M814 97h0M823 97h0M832 97h0M840 97h0M849 97h0M858 97h0M867 97h0M876 97h0M884 97h0M893 97h0M902 97h0M911 97h0M920 97h0M928 97h0M937 97h0M946 97h0M955 97h0M964 97h0M972 97h0M981 97h0M990 97h0M999 97h0M1008 97h0M1016 97h0M1025 97h0M1034 97h0M1043 97h0M1052 97h0M1060 97h0M1069 97h0M1078 97h0M1087 97h0M1096 97h0M1104 97h0M1113 97h0M1122 97h0M1131 97h0M1140 97h0M1148 97h0M1157 97h0M1166 97h0M1175 97h0M1184 97h0M1192 97h0M1201 97h0M1210 97h0M1219 97h0M1228 97h0M1236 97h0M1245 97h0M1254 97h0M1263 97h0M1272 97h0M1280 97h0M1289 97h0M1298 97h0M1307 97h0M1316 97h0M1324 97h0M1333 97h0M1342 97h0M44 106h0M53 106h0M62 106h0M150 106h0M158 106h0M167 106h0M176 106h0M185 106h0M194 106h0M202 106h0M211 106h0M220 106h0M229 106h0M238 106h0M246 106h0M255 106h0M264 106h0M273 106h0M282 106h0M290 106h0M299 106h0M370 106h0M378 106h0M387 106h0M396 106h0M405 106h0M414 106h0M422 106h0M660 106h0M722 106h0M730 106h0M739 106h0M748 106h0M774 106h0M783 106h0M792 106h0M801 106h0M810 106h0M818 106h0M827 106h0M836 106h0M845 106h0M854 106h0M862 106h0M871 106h0M880 106h0M889 106h0M898 106h0M906 106h0M915 106h0M924 106h0M933 106h0M942 106h0M950 106h0M959 106h0M968 106h0M977 106h0M986 106h0M994 106h0M1003 106h0M1012 106h0M1021 106h0M1030 106h0M1038 106h0M1047 106h0M1056 106h0M1065 106h0M1074 106h0M1082 106h0M1091 106h0M1100 106h0M1109 106h0M1118 106h0M1126 106h0M1135 106h0M1144 106h0M1153 106h0M1162 106h0M1170 106h0M1179 106h0M1188 106h0M1197 106h0M1206 106h0M1214 106h0M1223 106h0M1232 106h0M1241 106h0M1311 106h0M1320 106h0M1329 106h0M31 114h0M163 114h0M172 114h0M180 114h0M189 114h0M198 114h0M207 114h0M216 114h0M224 114h0M233 114h0M242 114h0M251 114h0M260 114h0M268 114h0M277 114h0M286 114h0M295 114h0M304 114h0M312 114h0M321 114h0M330 114h0M365 114h0M374 114h0M383 114h0M392 114h0M400 114h0M409 114h0M418 114h0M427 114h0M436 114h0M664 114h0M673 114h0M717 114h0M726 114h0M761 114h0M770 114h0M779 114h0M788 114h0M796 114h0M805 114h0M814 114h0M823 114h0M832 114h0M840 114h0M849 114h0M858 114h0M867 114h0M876 114h0M884 114h0M893 114h0M902 114h0M911 114h0M920 114h0M928 114h0M937 114h0M946 114h0M955 114h0M964 114h0M972 114h0M981 114h0M990 114h0M999 114h0M1008 114h0M1016 114h0M1025 114h0M1034 114h0M1043 114h0M1052 114h0M1060 114h0M1069 114h0M1078 114h0M1087 114h0M1096 114h0M1104 114h0M1113 114h0M1122 114h0M1131 114h0M1140 114h0M1148 114h0M1157 114h0M1166 114h0M1175 114h0M1184 114h0M1192 114h0M1201 114h0M1210 114h0M1219 114h0M1228 114h0M1307 114h0M1316 114h0M1324 114h0M167 123h0M176 123h0M185 123h0M194 123h0M202 123h0M211 123h0M220 123h0M229 123h0M238 123h0M246 123h0M255 123h0M264 123h0M273 123h0M282 123h0M290 123h0M299 123h0M308 123h0M317 123h0M326 123h0M334 123h0M343 123h0M361 123h0M370 123h0M378 123h0M387 123h0M396 123h0M405 123h0M414 123h0M422 123h0M431 123h0M440 123h0M449 123h0M642 123h0M651 123h0M669 123h0M678 123h0M713 123h0M722 123h0M730 123h0M739 123h0M748 123h0M757 123h0M766 123h0M774 123h0M783 123h0M792 123h0M801 123h0M810 123h0M818 123h0M827 123h0M836 123h0M845 123h0M854 123h0M862 123h0M871 123h0M880 123h0M889 123h0M898 123h0M906 123h0M915 123h0M924 123h0M933 123h0M942 123h0M950 123h0M959 123h0M968 123h0M977 123h0M986 123h0M994 123h0M1003 123h0M1012 123h0M1021 123h0M1030 123h0M1038 123h0M1047 123h0M1056 123h0M1065 123h0M1074 123h0M1082 123h0M1091 123h0M1100 123h0M1109 123h0M1118 123h0M1126 123h0M1135 123h0M1144 123h0M1153 123h0M1162 123h0M1170 123h0M1179 123h0M1188 123h0M1197 123h0M1206 123h0M1214 123h0M1223 123h0M1232 123h0M1241 123h0M1250 123h0M1311 123h0M180 132h0M189 132h0M198 132h0M207 132h0M216 132h0M224 132h0M233 132h0M242 132h0M251 132h0M260 132h0M268 132h0M277 132h0M286 132h0M295 132h0M304 132h0M312 132h0M321 132h0M330 132h0M339 132h0M348 132h0M356 132h0M365 132h0M374 132h0M383 132h0M392 132h0M400 132h0M409 132h0M418 132h0M427 132h0M436 132h0M444 132h0M673 132h0M691 132h0M700 132h0M708 132h0M717 132h0M726 132h0M735 132h0M744 132h0M752 132h0M761 132h0M770 132h0M779 132h0M788 132h0M796 132h0M805 132h0M814 132h0M823 132h0M832 132h0M840 132h0M849 132h0M858 132h0M867 132h0M876 132h0M884 132h0M893 132h0M902 132h0M911 132h0M920 132h0M928 132h0M937 132h0M946 132h0M955 132h0M964 132h0M972 132h0M981 132h0M990 132h0M999 132h0M1008 132h0M1016 132h0M1025 132h0M1034 132h0M1043 132h0M1052 132h0M1060 132h0M1069 132h0M1078 132h0M1087 132h0M1096 132h0M1104 132h0M1113 132h0M1122 132h0M1131 132h0M1140 132h0M1148 132h0M1157 132h0M1166 132h0M1175 132h0M1184 132h0M1192 132h0M1201 132h0M1210 132h0M1219 132h0M1228 132h0M1236 132h0M194 141h0M202 141h0M211 141h0M220 141h0M229 141h0M238 141h0M246 141h0M255 141h0M264 141h0M273 141h0M282 141h0M290 141h0M299 141h0M308 141h0M317 141h0M326 141h0M334 141h0M343 141h0M352 141h0M361 141h0M370 141h0M378 141h0M387 141h0M396 141h0M405 141h0M414 141h0M678 141h0M686 141h0M695 141h0M704 141h0M713 141h0M722 141h0M730 141h0M739 141h0M748 141h0M757 141h0M766 141h0M774 141h0M783 141h0M792 141h0M801 141h0M810 141h0M818 141h0M827 141h0M836 141h0M845 141h0M854 141h0M862 141h0M871 141h0M880 141h0M889 141h0M898 141h0M906 141h0M915 141h0M924 141h0M933 141h0M942 141h0M950 141h0M959 141h0M968 141h0M977 141h0M986 141h0M994 141h0M1003 141h0M1012 141h0M1021 141h0M1030 141h0M1038 141h0M1047 141h0M1056 141h0M1065 141h0M1074 141h0M1082 141h0M1091 141h0M1100 141h0M1109 141h0M1118 141h0M1126 141h0M1135 141h0M1144 141h0M1153 141h0M1162 141h0M1170 141h0M1179 141h0M1188 141h0M1197 141h0M1206 141h0M1214 141h0M1223 141h0M1232 141h0M1250 141h0M189 150h0M198 150h0M207 150h0M216 150h0M224 150h0M233 150h0M242 150h0M251 150h0M260 150h0M268 150h0M277 150h0M286 150h0M295 150h0M304 150h0M312 150h0M321 150h0M330 150h0M339 150h0M348 150h0M356 150h0M365 150h0M374 150h0M383 150h0M392 150h0M400 150h0M409 150h0M418 150h0M673 150h0M682 150h0M691 150h0M700 150h0M708 150h0M717 150h0M726 150h0M735 150h0M744 150h0M752 150h0M761 150h0M770 150h0M779 150h0M788 150h0M796 150h0M805 150h0M814 150h0M823 150h0M840 150h0M849 150h0M858 150h0M867 150h0M876 150h0M884 150h0M893 150h0M902 150h0M911 150h0M920 150h0M928 150h0M937 150h0M946 150h0M955 150h0M964 150h0M972 150h0M981 150h0M990 150h0M999 150h0M1008 150h0M1016 150h0M1025 150h0M1034 150h0M1043 150h0M1052 150h0M1060 150h0M1069 150h0M1078 150h0M1087 150h0M1096 150h0M1104 150h0M1113 150h0M1122 150h0M1131 150h0M1140 150h0M1148 150h0M1157 150h0M1166 150h0M1175 150h0M1184 150h0M1192 150h0M1201 150h0M1210 150h0M1219 150h0M1228 150h0M185 158h0M194 158h0M202 158h0M211 158h0M220 158h0M229 158h0M238 158h0M246 158h0M255 158h0M264 158h0M273 158h0M282 158h0M290 158h0M299 158h0M308 158h0M317 158h0M326 158h0M334 158h0M343 158h0M352 158h0M361 158h0M370 158h0M378 158h0M387 158h0M396 158h0M405 158h0M414 158h0M678 158h0M686 158h0M695 158h0M704 158h0M713 158h0M722 158h0M730 158h0M748 158h0M757 158h0M766 158h0M774 158h0M783 158h0M792 158h0M845 158h0M854 158h0M862 158h0M898 158h0M906 158h0M915 158h0M924 158h0M933 158h0M942 158h0M950 158h0M959 158h0M968 158h0M977 158h0M986 158h0M994 158h0M1003 158h0M1012 158h0M1021 158h0M1030 158h0M1038 158h0M1047 158h0M1056 158h0M1065 158h0M1074 158h0M1082 158h0M1091 158h0M1100 158h0M1109 158h0M1118 158h0M1126 158h0M1135 158h0M1144 158h0M1153 158h0M1162 158h0M1170 158h0M1179 158h0M1188 158h0M1197 158h0M1206 158h0M1214 158h0M1223 158h0M1250 158h0M189 167h0M198 167h0M207 167h0M216 167h0M224 167h0M233 167h0M242 167h0M251 167h0M260 167h0M268 167h0M277 167h0M286 167h0M295 167h0M304 167h0M312 167h0M321 167h0M330 167h0M339 167h0M348 167h0M356 167h0M365 167h0M374 167h0M383 167h0M392 167h0M647 167h0M656 167h0M664 167h0M673 167h0M682 167h0M691 167h0M735 167h0M761 167h0M770 167h0M779 167h0M788 167h0M849 167h0M858 167h0M867 167h0M902 167h0M911 167h0M920 167h0M928 167h0M937 167h0M946 167h0M955 167h0M964 167h0M972 167h0M981 167h0M990 167h0M999 167h0M1008 167h0M1016 167h0M1025 167h0M1034 167h0M1043 167h0M1052 167h0M1060 167h0M1069 167h0M1078 167h0M1087 167h0M1096 167h0M1104 167h0M1113 167h0M1122 167h0M1131 167h0M1140 167h0M1148 167h0M1157 167h0M1166 167h0M1175 167h0M1184 167h0M1192 167h0M194 176h0M202 176h0M211 176h0M220 176h0M229 176h0M238 176h0M246 176h0M255 176h0M264 176h0M273 176h0M282 176h0M290 176h0M299 176h0M308 176h0M317 176h0M326 176h0M334 176h0M343 176h0M352 176h0M361 176h0M370 176h0M378 176h0M651 176h0M660 176h0M669 176h0M678 176h0M748 176h0M766 176h0M792 176h0M801 176h0M810 176h0M818 176h0M827 176h0M836 176h0M845 176h0M854 176h0M862 176h0M871 176h0M898 176h0M906 176h0M915 176h0M924 176h0M933 176h0M942 176h0M950 176h0M959 176h0M968 176h0M977 176h0M986 176h0M994 176h0M1003 176h0M1012 176h0M1021 176h0M1030 176h0M1038 176h0M1047 176h0M1056 176h0M1065 176h0M1074 176h0M1082 176h0M1091 176h0M1100 176h0M1109 176h0M1118 176h0M1126 176h0M1135 176h0M1144 176h0M1153 176h0M1179 176h0M1188 176h0M1241 176h0M198 185h0M207 185h0M216 185h0M224 185h0M233 185h0M242 185h0M251 185h0M260 185h0M268 185h0M277 185h0M286 185h0M295 185h0M304 185h0M312 185h0M321 185h0M330 185h0M339 185h0M348 185h0M356 185h0M365 185h0M374 185h0M647 185h0M656 185h0M664 185h0M673 185h0M735 185h0M770 185h0M796 185h0M805 185h0M814 185h0M823 185h0M832 185h0M840 185h0M849 185h0M858 185h0M867 185h0M876 185h0M902 185h0M911 185h0M920 185h0M928 185h0M937 185h0M946 185h0M955 185h0M964 185h0M972 185h0M981 185h0M990 185h0M999 185h0M1008 185h0M1016 185h0M1025 185h0M1034 185h0M1043 185h0M1052 185h0M1060 185h0M1069 185h0M1078 185h0M1087 185h0M1096 185h0M1104 185h0M1113 185h0M1122 185h0M1131 185h0M1140 185h0M1148 185h0M1184 185h0M1192 185h0M1236 185h0M1245 185h0M202 194h0M211 194h0M220 194h0M229 194h0M238 194h0M246 194h0M255 194h0M264 194h0M273 194h0M282 194h0M290 194h0M299 194h0M308 194h0M317 194h0M326 194h0M334 194h0M343 194h0M352 194h0M361 194h0M370 194h0M660 194h0M678 194h0M686 194h0M695 194h0M704 194h0M713 194h0M722 194h0M827 194h0M836 194h0M845 194h0M854 194h0M862 194h0M871 194h0M880 194h0M889 194h0M898 194h0M906 194h0M915 194h0M924 194h0M933 194h0M942 194h0M950 194h0M959 194h0M968 194h0M977 194h0M986 194h0M994 194h0M1003 194h0M1012 194h0M1021 194h0M1030 194h0M1038 194h0M1047 194h0M1056 194h0M1065 194h0M1074 194h0M1082 194h0M1091 194h0M1100 194h0M1109 194h0M1118 194h0M1126 194h0M1135 194h0M1144 194h0M1153 194h0M1188 194h0M1214 194h0M1223 194h0M1232 194h0M1241 194h0M207 202h0M216 202h0M224 202h0M233 202h0M242 202h0M251 202h0M260 202h0M268 202h0M277 202h0M286 202h0M295 202h0M304 202h0M312 202h0M321 202h0M330 202h0M339 202h0M348 202h0M356 202h0M365 202h0M656 202h0M664 202h0M673 202h0M682 202h0M691 202h0M700 202h0M708 202h0M717 202h0M823 202h0M832 202h0M840 202h0M849 202h0M858 202h0M867 202h0M876 202h0M884 202h0M893 202h0M902 202h0M911 202h0M920 202h0M928 202h0M937 202h0M946 202h0M955 202h0M964 202h0M972 202h0M981 202h0M990 202h0M999 202h0M1008 202h0M1016 202h0M1025 202h0M1034 202h0M1043 202h0M1052 202h0M1060 202h0M1069 202h0M1078 202h0M1087 202h0M1096 202h0M1104 202h0M1113 202h0M1122 202h0M1131 202h0M1140 202h0M1148 202h0M1157 202h0M1201 202h0M220 211h0M229 211h0M238 211h0M246 211h0M255 211h0M264 211h0M273 211h0M282 211h0M290 211h0M299 211h0M308 211h0M317 211h0M326 211h0M334 211h0M343 211h0M352 211h0M642 211h0M651 211h0M660 211h0M669 211h0M678 211h0M686 211h0M695 211h0M704 211h0M713 211h0M722 211h0M730 211h0M739 211h0M748 211h0M766 211h0M774 211h0M783 211h0M792 211h0M810 211h0M827 211h0M836 211h0M845 211h0M854 211h0M862 211h0M871 211h0M880 211h0M889 211h0M898 211h0M906 211h0M915 211h0M924 211h0M933 211h0M942 211h0M950 211h0M959 211h0M968 211h0M977 211h0M986 211h0M994 211h0M1003 211h0M1012 211h0M1021 211h0M1030 211h0M1038 211h0M1047 211h0M1056 211h0M1065 211h0M1074 211h0M1082 211h0M1091 211h0M1100 211h0M1109 211h0M1118 211h0M1126 211h0M1135 211h0M1144 211h0M1153 211h0M1162 211h0M224 220h0M233 220h0M242 220h0M251 220h0M260 220h0M268 220h0M277 220h0M286 220h0M295 220h0M348 220h0M356 220h0M638 220h0M647 220h0M656 220h0M664 220h0M673 220h0M682 220h0M691 220h0M700 220h0M708 220h0M717 220h0M726 220h0M735 220h0M744 220h0M752 220h0M761 220h0M770 220h0M779 220h0M788 220h0M796 220h0M805 220h0M823 220h0M832 220h0M840 220h0M849 220h0M858 220h0M867 220h0M876 220h0M884 220h0M893 220h0M902 220h0M911 220h0M920 220h0M928 220h0M937 220h0M946 220h0M955 220h0M964 220h0M972 220h0M981 220h0M990 220h0M999 220h0M1008 220h0M1016 220h0M1025 220h0M1034 220h0M1043 220h0M1052 220h0M1060 220h0M1069 220h0M1078 220h0M1087 220h0M1096 220h0M1104 220h0M1113 220h0M1122 220h0M1131 220h0M1140 220h0M1148 220h0M1157 220h0M1166 220h0M229 229h0M238 229h0M246 229h0M255 229h0M264 229h0M273 229h0M282 229h0M290 229h0M634 229h0M642 229h0M651 229h0M660 229h0M669 229h0M678 229h0M686 229h0M695 229h0M704 229h0M713 229h0M722 229h0M730 229h0M739 229h0M748 229h0M757 229h0M766 229h0M774 229h0M783 229h0M792 229h0M801 229h0M810 229h0M827 229h0M836 229h0M845 229h0M854 229h0M862 229h0M871 229h0M880 229h0M906 229h0M915 229h0M924 229h0M933 229h0M942 229h0M950 229h0M959 229h0M968 229h0M977 229h0M986 229h0M994 229h0M1003 229h0M1012 229h0M1021 229h0M1030 229h0M1038 229h0M1047 229h0M1056 229h0M1065 229h0M1074 229h0M1082 229h0M1091 229h0M1100 229h0M1109 229h0M1118 229h0M1126 229h0M1135 229h0M1144 229h0M1153 229h0M242 238h0M251 238h0M260 238h0M268 238h0M277 238h0M286 238h0M620 238h0M629 238h0M638 238h0M647 238h0M656 238h0M664 238h0M673 238h0M682 238h0M691 238h0M700 238h0M708 238h0M717 238h0M726 238h0M735 238h0M744 238h0M752 238h0M761 238h0M770 238h0M779 238h0M788 238h0M796 238h0M805 238h0M814 238h0M832 238h0M840 238h0M849 238h0M858 238h0M867 238h0M876 238h0M884 238h0M902 238h0M955 238h0M964 238h0M972 238h0M981 238h0M990 238h0M999 238h0M1008 238h0M1016 238h0M1025 238h0M1034 238h0M1043 238h0M1052 238h0M1060 238h0M1069 238h0M1078 238h0M1087 238h0M1096 238h0M1104 238h0M1113 238h0M1122 238h0M1131 238h0M1140 238h0M1148 238h0M1166 238h0M264 246h0M273 246h0M282 246h0M361 246h0M616 246h0M625 246h0M634 246h0M642 246h0M651 246h0M660 246h0M669 246h0M678 246h0M686 246h0M695 246h0M704 246h0M713 246h0M722 246h0M730 246h0M739 246h0M748 246h0M757 246h0M766 246h0M774 246h0M783 246h0M792 246h0M801 246h0M810 246h0M818 246h0M836 246h0M845 246h0M854 246h0M862 246h0M871 246h0M880 246h0M889 246h0M898 246h0M906 246h0M915 246h0M959 246h0M968 246h0M977 246h0M986 246h0M994 246h0M1003 246h0M1012 246h0M1021 246h0M1030 246h0M1038 246h0M1047 246h0M1056 246h0M1065 246h0M1074 246h0M1082 246h0M1091 246h0M1100 246h0M1109 246h0M1118 246h0M1126 246h0M1135 246h0M260 255h0M268 255h0M277 255h0M286 255h0M321 255h0M330 255h0M374 255h0M383 255h0M620 255h0M629 255h0M638 255h0M647 255h0M656 255h0M664 255h0M673 255h0M682 255h0M691 255h0M700 255h0M708 255h0M717 255h0M726 255h0M735 255h0M744 255h0M752 255h0M761 255h0M770 255h0M779 255h0M788 255h0M796 255h0M805 255h0M814 255h0M823 255h0M840 255h0M849 255h0M858 255h0M867 255h0M876 255h0M884 255h0M893 255h0M902 255h0M911 255h0M972 255h0M981 255h0M990 255h0M999 255h0M1008 255h0M1016 255h0M1052 255h0M1060 255h0M1069 255h0M1078 255h0M1087 255h0M1096 255h0M1104 255h0M273 264h0M282 264h0M290 264h0M299 264h0M308 264h0M317 264h0M326 264h0M396 264h0M616 264h0M625 264h0M634 264h0M642 264h0M651 264h0M660 264h0M669 264h0M678 264h0M686 264h0M695 264h0M704 264h0M713 264h0M722 264h0M730 264h0M739 264h0M748 264h0M757 264h0M766 264h0M774 264h0M783 264h0M792 264h0M801 264h0M810 264h0M818 264h0M827 264h0M845 264h0M854 264h0M862 264h0M871 264h0M880 264h0M889 264h0M898 264h0M977 264h0M986 264h0M994 264h0M1003 264h0M1012 264h0M1065 264h0M1074 264h0M1082 264h0M1091 264h0M1100 264h0M1162 264h0M312 273h0M321 273h0M330 273h0M339 273h0M612 273h0M620 273h0M629 273h0M638 273h0M647 273h0M656 273h0M664 273h0M673 273h0M682 273h0M691 273h0M700 273h0M708 273h0M717 273h0M726 273h0M735 273h0M744 273h0M752 273h0M761 273h0M770 273h0M779 273h0M788 273h0M796 273h0M805 273h0M814 273h0M823 273h0M832 273h0M849 273h0M858 273h0M867 273h0M876 273h0M884 273h0M981 273h0M990 273h0M999 273h0M1078 273h0M1087 273h0M1096 273h0M1104 273h0M1166 273h0M326 282h0M334 282h0M343 282h0M616 282h0M625 282h0M634 282h0M642 282h0M651 282h0M660 282h0M669 282h0M678 282h0M686 282h0M695 282h0M704 282h0M713 282h0M722 282h0M730 282h0M739 282h0M748 282h0M757 282h0M766 282h0M774 282h0M783 282h0M792 282h0M801 282h0M810 282h0M818 282h0M827 282h0M836 282h0M845 282h0M854 282h0M862 282h0M986 282h0M994 282h0M1074 282h0M1082 282h0M1091 282h0M1100 282h0M1109 282h0M1170 282h0M339 290h0M392 290h0M620 290h0M629 290h0M638 290h0M647 290h0M656 290h0M664 290h0M673 290h0M682 290h0M691 290h0M700 290h0M708 290h0M717 290h0M726 290h0M735 290h0M744 290h0M752 290h0M761 290h0M770 290h0M779 290h0M788 290h0M796 290h0M805 290h0M814 290h0M823 290h0M832 290h0M840 290h0M849 290h0M876 290h0M990 290h0M999 290h0M1078 290h0M1096 290h0M1104 290h0M343 299h0M352 299h0M361 299h0M378 299h0M387 299h0M396 299h0M405 299h0M414 299h0M422 299h0M431 299h0M634 299h0M642 299h0M651 299h0M660 299h0M669 299h0M678 299h0M686 299h0M695 299h0M704 299h0M713 299h0M722 299h0M730 299h0M739 299h0M748 299h0M757 299h0M766 299h0M774 299h0M783 299h0M792 299h0M801 299h0M810 299h0M818 299h0M827 299h0M836 299h0M845 299h0M854 299h0M862 299h0M871 299h0M880 299h0M994 299h0M1100 299h0M374 308h0M383 308h0M392 308h0M400 308h0M409 308h0M418 308h0M427 308h0M436 308h0M444 308h0M638 308h0M647 308h0M656 308h0M664 308h0M673 308h0M682 308h0M691 308h0M700 308h0M708 308h0M717 308h0M726 308h0M735 308h0M744 308h0M752 308h0M761 308h0M770 308h0M779 308h0M788 308h0M796 308h0M805 308h0M814 308h0M823 308h0M832 308h0M840 308h0M849 308h0M858 308h0M867 308h0M876 308h0M1175 308h0M1184 308h0M378 317h0M387 317h0M396 317h0M405 317h0M414 317h0M422 317h0M431 317h0M440 317h0M449 317h0M458 317h0M466 317h0M651 317h0M704 317h0M713 317h0M722 317h0M730 317h0M739 317h0M748 317h0M757 317h0M766 317h0M774 317h0M783 317h0M792 317h0M801 317h0M810 317h0M818 317h0M827 317h0M836 317h0M845 317h0M854 317h0M862 317h0M871 317h0M1065 317h0M1091 317h0M1144 317h0M1153 317h0M374 326h0M383 326h0M392 326h0M400 326h0M409 326h0M418 326h0M427 326h0M436 326h0M444 326h0M453 326h0M462 326h0M471 326h0M726 326h0M735 326h0M744 326h0M752 326h0M761 326h0M770 326h0M779 326h0M788 326h0M796 326h0M805 326h0M814 326h0M823 326h0M832 326h0M840 326h0M849 326h0M858 326h0M1131 326h0M1140 326h0M1148 326h0M361 334h0M370 334h0M378 334h0M387 334h0M396 334h0M405 334h0M414 334h0M422 334h0M431 334h0M440 334h0M449 334h0M458 334h0M466 334h0M475 334h0M722 334h0M730 334h0M739 334h0M748 334h0M757 334h0M766 334h0M774 334h0M783 334h0M792 334h0M801 334h0M810 334h0M818 334h0M827 334h0M836 334h0M845 334h0M854 334h0M1082 334h0M1118 334h0M1126 334h0M1135 334h0M1144 334h0M1162 334h0M1170 334h0M365 343h0M374 343h0M383 343h0M392 343h0M400 343h0M409 343h0M418 343h0M427 343h0M436 343h0M444 343h0M453 343h0M462 343h0M471 343h0M480 343h0M488 343h0M726 343h0M735 343h0M744 343h0M752 343h0M761 343h0M770 343h0M779 343h0M788 343h0M796 343h0M805 343h0M814 343h0M823 343h0M832 343h0M840 343h0M1087 343h0M1122 343h0M1131 343h0M1140 343h0M1166 343h0M1210 343h0M361 352h0M370 352h0M378 352h0M387 352h0M396 352h0M405 352h0M414 352h0M422 352h0M431 352h0M440 352h0M449 352h0M458 352h0M466 352h0M475 352h0M484 352h0M493 352h0M502 352h0M510 352h0M519 352h0M528 352h0M730 352h0M739 352h0M748 352h0M757 352h0M766 352h0M774 352h0M783 352h0M792 352h0M801 352h0M810 352h0M818 352h0M827 352h0M836 352h0M1091 352h0M1100 352h0M1162 352h0M1223 352h0M1232 352h0M1241 352h0M1250 352h0M365 361h0M374 361h0M383 361h0M392 361h0M400 361h0M409 361h0M418 361h0M427 361h0M436 361h0M444 361h0M453 361h0M462 361h0M471 361h0M480 361h0M488 361h0M497 361h0M506 361h0M515 361h0M524 361h0M532 361h0M735 361h0M744 361h0M752 361h0M761 361h0M770 361h0M779 361h0M788 361h0M796 361h0M805 361h0M814 361h0M823 361h0M832 361h0M1236 361h0M1245 361h0M1254 361h0M1263 361h0M370 370h0M378 370h0M387 370h0M396 370h0M405 370h0M414 370h0M422 370h0M431 370h0M440 370h0M449 370h0M458 370h0M466 370h0M475 370h0M484 370h0M493 370h0M502 370h0M510 370h0M519 370h0M528 370h0M537 370h0M739 370h0M748 370h0M757 370h0M766 370h0M774 370h0M783 370h0M792 370h0M801 370h0M810 370h0M818 370h0M827 370h0M836 370h0M1135 370h0M1241 370h0M1250 370h0M1267 370h0M374 378h0M383 378h0M392 378h0M400 378h0M409 378h0M418 378h0M427 378h0M436 378h0M444 378h0M453 378h0M462 378h0M471 378h0M480 378h0M488 378h0M497 378h0M506 378h0M515 378h0M524 378h0M532 378h0M735 378h0M744 378h0M752 378h0M761 378h0M770 378h0M779 378h0M788 378h0M796 378h0M805 378h0M814 378h0M823 378h0M832 378h0M840 378h0M378 387h0M387 387h0M396 387h0M405 387h0M414 387h0M422 387h0M431 387h0M440 387h0M449 387h0M458 387h0M466 387h0M475 387h0M484 387h0M493 387h0M502 387h0M510 387h0M519 387h0M528 387h0M739 387h0M748 387h0M757 387h0M766 387h0M774 387h0M783 387h0M792 387h0M801 387h0M810 387h0M818 387h0M827 387h0M836 387h0M1206 387h0M1214 387h0M1250 387h0M383 396h0M392 396h0M400 396h0M409 396h0M418 396h0M427 396h0M436 396h0M444 396h0M453 396h0M462 396h0M471 396h0M480 396h0M488 396h0M497 396h0M506 396h0M515 396h0M524 396h0M735 396h0M744 396h0M752 396h0M761 396h0M770 396h0M779 396h0M788 396h0M796 396h0M805 396h0M814 396h0M823 396h0M832 396h0M867 396h0M876 396h0M1184 396h0M1192 396h0M1201 396h0M1210 396h0M1219 396h0M1254 396h0M396 405h0M405 405h0M414 405h0M422 405h0M431 405h0M440 405h0M449 405h0M458 405h0M466 405h0M475 405h0M484 405h0M493 405h0M502 405h0M510 405h0M519 405h0M730 405h0M739 405h0M748 405h0M757 405h0M766 405h0M774 405h0M783 405h0M792 405h0M801 405h0M810 405h0M818 405h0M827 405h0M862 405h0M871 405h0M1179 405h0M1188 405h0M1197 405h0M1206 405h0M1214 405h0M1223 405h0M1232 405h0M1241 405h0M1250 405h0M1258 405h0M400 414h0M409 414h0M418 414h0M427 414h0M436 414h0M444 414h0M453 414h0M462 414h0M471 414h0M480 414h0M488 414h0M497 414h0M506 414h0M515 414h0M735 414h0M744 414h0M752 414h0M761 414h0M770 414h0M779 414h0M788 414h0M796 414h0M805 414h0M814 414h0M858 414h0M867 414h0M876 414h0M1166 414h0M1175 414h0M1184 414h0M1192 414h0M1201 414h0M1210 414h0M1219 414h0M1228 414h0M1236 414h0M1245 414h0M1254 414h0M1263 414h0M405 422h0M414 422h0M422 422h0M431 422h0M440 422h0M449 422h0M458 422h0M466 422h0M475 422h0M484 422h0M493 422h0M502 422h0M510 422h0M739 422h0M748 422h0M757 422h0M766 422h0M774 422h0M783 422h0M792 422h0M801 422h0M810 422h0M818 422h0M862 422h0M871 422h0M1144 422h0M1153 422h0M1162 422h0M1170 422h0M1179 422h0M1188 422h0M1197 422h0M1206 422h0M1214 422h0M1223 422h0M1232 422h0M1241 422h0M1250 422h0M1258 422h0M1267 422h0M400 431h0M409 431h0M418 431h0M427 431h0M436 431h0M444 431h0M453 431h0M462 431h0M471 431h0M480 431h0M488 431h0M497 431h0M744 431h0M752 431h0M761 431h0M770 431h0M779 431h0M788 431h0M796 431h0M805 431h0M814 431h0M858 431h0M867 431h0M1140 431h0M1148 431h0M1157 431h0M1166 431h0M1175 431h0M1184 431h0M1192 431h0M1201 431h0M1210 431h0M1219 431h0M1228 431h0M1236 431h0M1245 431h0M1254 431h0M1263 431h0M1272 431h0M1280 431h0M405 440h0M414 440h0M422 440h0M431 440h0M440 440h0M449 440h0M458 440h0M466 440h0M475 440h0M484 440h0M748 440h0M757 440h0M766 440h0M774 440h0M783 440h0M792 440h0M801 440h0M810 440h0M1144 440h0M1153 440h0M1162 440h0M1170 440h0M1179 440h0M1188 440h0M1197 440h0M1206 440h0M1214 440h0M1223 440h0M1232 440h0M1241 440h0M1250 440h0M1258 440h0M1267 440h0M1276 440h0M1285 440h0M400 449h0M409 449h0M418 449h0M427 449h0M436 449h0M444 449h0M453 449h0M462 449h0M471 449h0M480 449h0M752 449h0M761 449h0M770 449h0M779 449h0M788 449h0M796 449h0M805 449h0M1140 449h0M1148 449h0M1157 449h0M1166 449h0M1175 449h0M1184 449h0M1192 449h0M1201 449h0M1210 449h0M1219 449h0M1228 449h0M1236 449h0M1245 449h0M1254 449h0M1263 449h0M1272 449h0M1280 449h0M1289 449h0M396 458h0M405 458h0M414 458h0M422 458h0M431 458h0M440 458h0M449 458h0M458 458h0M466 458h0M475 458h0M757 458h0M766 458h0M774 458h0M783 458h0M792 458h0M801 458h0M1144 458h0M1153 458h0M1162 458h0M1170 458h0M1179 458h0M1188 458h0M1197 458h0M1206 458h0M1214 458h0M1223 458h0M1232 458h0M1241 458h0M1250 458h0M1258 458h0M1267 458h0M1276 458h0M1285 458h0M400 466h0M409 466h0M418 466h0M427 466h0M436 466h0M444 466h0M453 466h0M462 466h0M761 466h0M770 466h0M779 466h0M788 466h0M1140 466h0M1148 466h0M1157 466h0M1166 466h0M1175 466h0M1219 466h0M1228 466h0M1236 466h0M1245 466h0M1254 466h0M1263 466h0M1272 466h0M1280 466h0M396 475h0M405 475h0M414 475h0M422 475h0M431 475h0M440 475h0M449 475h0M1153 475h0M1232 475h0M1241 475h0M1250 475h0M1258 475h0M1267 475h0M1276 475h0M392 484h0M400 484h0M409 484h0M418 484h0M427 484h0M436 484h0M444 484h0M1245 484h0M1254 484h0M1263 484h0M1272 484h0M1280 484h0M387 493h0M396 493h0M405 493h0M414 493h0M422 493h0M1382 493h0M392 502h0M400 502h0M409 502h0M418 502h0M1263 502h0M1272 502h0M1368 502h0M387 510h0M396 510h0M405 510h0M414 510h0M422 510h0M1355 510h0M1364 510h0M383 519h0M392 519h0M400 519h0M409 519h0M1351 519h0M1360 519h0M378 528h0M387 528h0M396 528h0M405 528h0M383 537h0M392 537h0M400 537h0M387 546h0M396 546h0M405 546h0M400 554h0%22 stroke=%22%23D8C49B%22 stroke-width=%224.6%22 stroke-linecap=%22round%22/%3E%3Cg stroke=%22%23B99A62%22 stroke-width=%222%22 stroke-dasharray=%223 7%22 stroke-linecap=%22round%22 opacity=%22.9%22%3E%3Cpath d=%22M323 281Q354 188 384 173%22/%3E%3Cpath d=%22M323 281Q494 113 665 174%22/%3E%3Cpath d=%22M323 281Q408 283 494 430%22/%3E%3Cpath d=%22M323 281Q514 87 704 151%22/%3E%3C/g%3E%3Cg fill=%22%23B99A62%22%3E%3Ccircle cx=%22384%22 cy=%22173%22 r=%224.5%22/%3E%3Ccircle cx=%22665%22 cy=%22174%22 r=%224.5%22/%3E%3Ccircle cx=%22494%22 cy=%22430%22 r=%224.5%22/%3E%3Ccircle cx=%22704%22 cy=%22151%22 r=%224.5%22/%3E%3C/g%3E%3Ccircle cx=%22323%22 cy=%22281%22 r=%2215%22 stroke=%22%23B99A62%22 stroke-width=%222%22 opacity=%22.55%22/%3E%3Ccircle cx=%22323%22 cy=%22281%22 r=%227%22 fill=%22%23B99A62%22/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: .30; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to left, #000 35%, transparent 95%);
+  mask-image: linear-gradient(to left, #000 35%, transparent 95%);
+}
+.contact-panel {
+  position: relative; z-index: 1; padding: 0; text-align: left;
+  background: none; border: 0; border-radius: 0; box-shadow: none;
+}
+.contact-panel .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+.contact-panel h2 { font-size: clamp(2rem, 4.6vw, 3.3rem); max-width: 18ch; line-height: 1.1; }
+.contact-panel > p:not(.eyebrow) { margin: 1.2rem 0 0; max-width: 46ch; font-size: 1.1rem; }
+.contact-actions { justify-content: flex-start; margin-top: 2.2rem; }
+
+/* Iconos: blancos sobre azul marino */
+.skill-icon {
+  background: var(--navy); color: #fff; font-variant-emoji: text;
+  box-shadow: inset 0 0 0 1px rgba(185, 154, 98, .55), 0 8px 18px rgba(20, 36, 61, .18);
+}
+
+@media (max-width: 680px) {
+  .contact-section { padding: 4rem 0; }
+  .contact-section::before { width: 150%; right: -45%; top: 62%; opacity: .2; }
+}
