@@ -127,7 +127,7 @@ const translations = {
       '¡Supérate! Business Program',
       'Excel Certifications',
       'Volunteer — English Kids',
-      'Programming Experience / Fronter'
+      'Programming Experience / Frontend'
     ],
     '.timeline-content p': [
       'Complejo Educativo Soldado Oscar Antonio Ortiz Reyes.',
@@ -264,7 +264,7 @@ const translations = {
       'Programa Empresarial ¡Supérate!',
       'Certificaciones de Excel',
       'Voluntariado — English Kids',
-      'Experiencia en programación / Fronter'
+      'Experiencia en programación / Frontend'
     ],
     '.timeline-content p': [
       'Complejo Educativo Soldado Oscar Antonio Ortiz Reyes.',
