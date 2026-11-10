@@ -133,7 +133,7 @@ const translations = {
       'Complejo Educativo Soldado Oscar Antonio Ortiz Reyes.',
       'Program scholar. English| ICT |Values.',
       'Excel Associate (November 2025) and Excel Expert (March 2026).',
-      'Teaching English to children, preparing educational activities and developing communication and group-management skills.',
+      'Teaching English to children, preparing educational activities and developing communication and group-management skills especially with young learners.',
       'Participated and collaborated in various technological and academic projects, including hackathons, exhibitions, and events such as Expo and ExpoTech, contributing to the design, development, and programming of digital solutions.'
     ],
 
@@ -196,7 +196,7 @@ const translations = {
     '.fact-card p': [
       'Me gusta adquirir nuevas habilidades y ponerlas en práctica.',
       'Valoro la planificación, la responsabilidad y el trabajo bien hecho.',
-      'Mi experiencia de voluntariado ha fortalecido mi comunicación y trabajo con grupos.'
+      'Mi experiencia de voluntariado ha fortalecido mi comunicación y trabajo con grupos especialmente con niños.'
     ],
 
     '#proyectop .section-heading .eyebrow': ['PROYECTO PERSONAL'],
